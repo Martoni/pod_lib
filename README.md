@@ -1,2 +1,2 @@
 # pod_lib
-Standard library for PeripheralOnDemand
+Standard library and platform for PeripheralOnDemand
