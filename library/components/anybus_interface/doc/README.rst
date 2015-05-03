@@ -41,10 +41,10 @@ Exemple: if your Wishbone bus is clocked at 100Mhz
 
 **ARMadeus linux driver**
 
-Load these Linux modules:
+Load these Linux modules::
 
-``$ modprobe anybus_interface_platform``
-``$ modprobe anybus_interface``
+$ modprobe anybus_interface_platform
+$ modprobe anybus_interface
 
 Then, you can mmap the file /dev/anybus_interface to access to the hms_anybus_interface component
 registers in :

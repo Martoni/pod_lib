@@ -26,11 +26,11 @@ Irq_mngr component is composed of four 16bits registers:
 **ARMadeus linux driver:**
 
 irq manager is used with other module, then before use its, unsure you have
-loaded the manager :
+loaded the manager::
 
-``$ modprobe irq_ocore``
+$ modprobe irq_ocore
 
-Then load pod_irq module :
+Then load pod_irq module::
 
-``$ modprobe pod_irq_mng``
+$ modprobe pod_irq_mng
 
