@@ -21,12 +21,10 @@ Please see the technical datasheet of the HMS Anybus for registers details.
 
 * **CONTROL_REG**
 
-  * bit 0: if set, this bit indicate that a transmission error has occured. This bit will be
-           cleared when you read the CONTROL_REG register.
+  * bit 0: if set, this bit indicate that a transmission error has occured. This bit will be cleared when you read the CONTROL_REG register.
   * bit 1: Set this bit to transmit data to the Anybus module.
   * bit 2: Set this bit to receive data from the Anybus module.
-  * bit 3..5: This value indicate the number of Wishbone clock cycles to wait while an access
-              to the modules.
+  * bit 3..5: This value indicate the number of Wishbone clock cycles to wait while an access to the modules.
 * **ADDRESS_REG**
     This register contain the address to read/write by the component.
 * **DATA_REG**
@@ -34,10 +32,12 @@ Please see the technical datasheet of the HMS Anybus for registers details.
 
 Please don't forget to set generic gpio_reset and gpio_irq
 
-Warning: You must first configure the number of Wishbone clock cycles to wait before an Anybus access
+**Warning**: You must first configure the number of Wishbone clock cycles to wait before an Anybus access
 with your application: It is recommended to not be lower than 25ns.
-Exemple: if your Wishbone bus is clocked at 100Mhz
-25ns/(1 / 100Mhz) = 2.5 ==> CONTROL_REG[3..5] = 3
+
+**Exemple**: if your Wishbone bus is clocked at 100Mhz::
+
+ 25ns/(1/100Mhz) = 2.5 ==> CONTROL_REG[3..5] = 3
 
 **ARMadeus linux driver**
 
