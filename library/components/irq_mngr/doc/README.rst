@@ -3,7 +3,8 @@ Irq_mngr
 This component is designed to managed interrupts from others Virtual component
 to the processor.
 
-**FPGA Component**
+FPGA Component
+^^^^^^^^^^^^^^
 
 Irq_mngr component is composed of four 16bits registers:
 
@@ -23,7 +24,8 @@ Irq_mngr component is composed of four 16bits registers:
 * **PENDING**: bit flag is 1 if irq pending, write 1 to reset flag
 * **ID**: identification register
 
-**ARMadeus linux driver:**
+ARMadeus linux driver
+^^^^^^^^^^^^^^^^^^^^^
 
 irq manager is used with other module, then before use its, unsure you have
 loaded the manager::

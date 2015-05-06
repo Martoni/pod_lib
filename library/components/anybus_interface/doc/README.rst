@@ -2,7 +2,8 @@ Wishbone interface for HMS Anybus modules
 -----------------------------------------
 This component is designed to drive a HMS Anybus Module
 
-**FPGA component**
+FPGA component
+^^^^^^^^^^^^^^
 
 Output component is used for read/write in HMS Anybus Module
 Please see the technical datasheet of the HMS Anybus for registers details.
@@ -39,7 +40,8 @@ with your application: It is recommended to not be lower than 25ns.
 
  25ns/(1/100Mhz) = 2.5 ==> CONTROL_REG[3..5] = 3
 
-**ARMadeus linux driver**
+ARMadeus linux driver
+^^^^^^^^^^^^^^^^^^^^^
 
 Load these Linux modules::
 
