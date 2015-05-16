@@ -1,8 +1,7 @@
- and component
-================
+Or component
+------------
 
-simple logic and function
+simple logic or function
 
 FPGA component
---------------
-
+^^^^^^^^^^^^^^
