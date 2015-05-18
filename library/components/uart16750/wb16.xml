@@ -10,7 +10,6 @@
             <file name="16750.c" />
             <file name="Makefile" />
             <file name="Kconfig" />
-            <file name="README.md" />
         </driver_templates>
     </driver_files>
 
