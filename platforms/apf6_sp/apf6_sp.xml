@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<platform name="apf6_sp" version="0.1" >
+    <description>
+        Armadeus apf6_sp card
+    </description>
+
+    <fpga family="Cyclone V" device="5CGXFC9A6U19I7" main_clock="125000" out_bin="cvp" />
+
+    <components>
+        <component name="wrappers/imx6_wb_wrapper"/>
+    </components>
+
+	<toolchain>
+		<option name="CVP_MODE" >"CORE INITIALIZATION AND UPDATE"</option>
+	</toolchain>
+
+    <interfaces>
+        <interface name="fpga">
+            <ports>
+                <port size="1" standard="1.5-V PCML" position="PIN_V4" name="CLK_P" dir="in"/>
+                <port size="1" standard="1.5-V PCML" position="PIN_U4" name="CLK_N" dir="in"/>
+                <port size="1" standard="1.5-V PCML" position="PIN_AA2" name="PCIE_RX_P" dir="in"/>
+                <port size="1" standard="1.5-V PCML" position="PIN_AA1" name="PCIE_RX_N" dir="in"/>
+                <port size="1" standard="1.5-V PCML" position="PIN_Y4" name="PCIE_TX_P" dir="out"/>
+                <port size="1" standard="1.5-V PCML" position="PIN_Y3" name="PCIE_TX_N" dir="out"/>
+                <port size="1" standard="2.5 V" position="PIN_R17" name="PERST" dir="in"/>
+                <port size="1" standard="2.5 V" position="PIN_R16" name="NPOR" dir="in"/>
+                <port size="1" standard="2.5 V" position="PIN_M10" name="LED0" dir="out"/>
+            </ports>
+        </interface>
+    </interfaces>
+
+</platform>
