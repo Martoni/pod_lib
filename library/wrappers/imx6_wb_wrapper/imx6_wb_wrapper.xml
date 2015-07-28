@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component name="imx6_wb_wrapper" version="0.1">
+  <description>
+    Convert imx6 to cycloneV avalon PCIe bus into a Wishbone 64bits master bus.
+  </description>
+
+  <hdl_files>
+    <hdl_file filename="imx6_wb_wrapper.vhd" scope="cycloneV" istop="1"/>
+  </hdl_files>
+
+  <interfaces>
+  	<interface name="pcie" class="gls">
+		<ports>
+			<port name="refclk_clk" type="EXPORT" size="1" dir="in">
+				<pin num="0"> <connect instance_dest="apf6_sp" interface_dest="fpga" port_dest="CLK_P" pin_dest="0"/></pin>
+			</port>
+			<port name="refclk_clk(n)" type="EXPORT" size="1" dir="in" hidden="true">
+				<pin num="0"> <connect instance_dest="apf6_sp" interface_dest="fpga" port_dest="CLK_N" pin_dest="0"/></pin>
+			</port>
+
+			<port name="hip_serial_tx_out0" type="EXPORT" size="1" dir="out">
+				<pin num="0"> <connect instance_dest="apf6_sp" interface_dest="fpga" port_dest="PCIE_TX_P" pin_dest="0"/></pin>
+			</port>
+			<port name="hip_serial_tx_out0(n)" type="EXPORT" size="1" dir="out" hidden="true">
+				<pin num="0"> <connect instance_dest="apf6_sp" interface_dest="fpga" port_dest="PCIE_TX_N" pin_dest="0"/></pin>
+			</port>
+
+			<port name="hip_serial_rx_in0" type="EXPORT" size="1" dir="in">
+				<pin num="0"> <connect instance_dest="apf6_sp" interface_dest="fpga" port_dest="PCIE_RX_P" pin_dest="0"/></pin>
+			</port>
+			<port name="hip_serial_rx_in0(n)" type="EXPORT" size="1" dir="in" hidden="true">
+				<pin num="0"> <connect instance_dest="apf6_sp" interface_dest="fpga" port_dest="PCIE_RX_N" pin_dest="0"/></pin>
+			</port>
+
+			<port name="npor_pin_perst" type="EXPORT" size="1" dir="in">
+				<pin num="0"> <connect instance_dest="apf6_sp" interface_dest="fpga" port_dest="PERST" pin_dest="0"/></pin>
+			</port>
+			<port name="npor_npor" type="EXPORT" size="1" dir="in">
+				<pin num="0"> <connect instance_dest="apf6_sp" interface_dest="fpga" port_dest="NPOR" pin_dest="0"/></pin>
+			</port>
+		</ports>
+	</interface>
+    <interface name="candroutput" class="master" bus="candr">
+      <ports>
+        <port name="rst_o" type="RST" size="1" dir="out"/>
+        <port name="clk_o" type="CLK" size="1" dir="out"/>
+      </ports>
+    </interface>
+	<interface name="aval64" class="master" bus="wishboneExt" data_size="64">
+		<ports>
+        	<port name="wbm_clk" type="CLK" size="1" dir="out"/>
+   	    	<port name="wbm_rst" type="RST" size="1" dir="out"/>
+			<!--<port name="aval_exp_irq" type="IRQ" size="1" dir="in" />-->
+			<port name="wbm_address" type="ADR" size="12" dir="out" />
+			<port name="wbm_readdata" type="DAT_I" size="64" dir="in" />
+			<port name="wbm_writedata" type="DAT_O" size="64" dir="out" />
+			<port name="wbm_byte_enable" type="BYE" size="8" dir="out" />
+			<port name="wbm_strobe" type="STB" size="1" dir="out" />
+			<port name="wbm_write" type="WE" size="1" dir="out" />
+			<port name="wbm_ack" type="ACK" size="1" dir="in" />
+			<port name="wbm_cycle" type="CYC" size="1" dir="out" />
+		</ports>
+	</interface>
+  </interfaces>
+  <qsys>
+		<qsys_components>
+  			<qsys_component name="altera_pcie_cv_hip_avmm" instance_name="pcie_cv_hip_avmm_0">
+				<parameter name="INTENDED_DEVICE_FAMILY">Cyclone V</parameter>
+				<parameter name="lane_mask_hwtcl">x1</parameter>
+				<parameter name="pll_refclk_freq_hwtcl">125 MHz</parameter>
+				<parameter name="in_cvp_mode_hwtcl">1</parameter>
+				<parameter name="bar0_type_hwtcl">2</parameter>
+				<parameter name="bar0_size_mask_hwtcl">14</parameter>
+				<parameter name="bar0_io_space_hwtcl">Disabled</parameter>
+				<parameter name="bar0_64bit_mem_space_hwtcl">Disabled</parameter>
+				<parameter name="bar0_prefetchable_hwtcl">Disabled</parameter>
+				<parameter name="vendor_id_hwtcl">4466</parameter>
+				<parameter name="device_id_hwtcl">57345</parameter>
+				<parameter name="class_code_hwtcl">4864</parameter>
+				<parameter name="max_payload_size_hwtcl">128</parameter>
+				<parameter name="CB_A2P_ADDR_MAP_PASS_THRU_BITS">12</parameter>
+			</qsys_component>
+  			<qsys_component name="altera_pcie_reconfig_driver" instance_name="pcie_reconfig_driver_0">
+			</qsys_component>
+  			<qsys_component name="alt_xcvr_reconfig" instance_name="alt_xcvr_reconfig_0">
+			</qsys_component>
+			<qsys_component name="altera_clock_bridge" instance_name="clock_bridge_0">
+				<!-- <parameter name="DERIVED_CLOCK_RATE" value="125000000" />
+					 <parameter name="EXPLICIT_CLOCK_RATE" value="0" />
+					 <parameter name="NUM_CLOCK_OUTPUTS" value="1" />
+				-->
+			</qsys_component>
+			<qsys_component name="altera_reset_bridge" instance_name="reset_bridge_0">
+				<parameter name="SYNCHRONOUS_EDGES">both</parameter>
+			</qsys_component>
+			<qsys_component name="altera_up_avalon_to_external_bus_bridge" instance_name="to_external_bus_bridge_0">
+				<parameter name="addr_size" >4</parameter>
+				<parameter name="addr_size_multiplier" >Kbytes</parameter>
+				<parameter name="data_size" >64</parameter>
+				<!--set_instance_parameter_value to_external_bus_bridge_0 AUTO_DEVICE_FAMILY {Cyclone V}
+				set_instance_parameter_value to_external_bus_bridge_0 AUTO_CLK_CLOCK_RATE {125000000.0}-->
+			</qsys_component>
+
+		</qsys_components>
+		<connections>
+			<connection src="pcie_cv_hip_avmm_0.Rxm_BAR0" dest="pcie_cv_hip_avmm_0.Cra">
+				<parameter name="arbitrationPriority">1</parameter>
+				<parameter name="baseAddress">0x0000</parameter>
+				<parameter name="defaultConnection">0</parameter>
+			</connection>
+			<connection src="pcie_reconfig_driver_0.reconfig_mgmt" dest="alt_xcvr_reconfig_0.reconfig_mgmt" >
+				<parameter name="arbitrationPriority">1</parameter>
+				<parameter name="baseAddress">0x0000</parameter>
+				<parameter name="defaultConnection">0</parameter>
+			</connection>
+			<connection src="pcie_cv_hip_avmm_0.coreclkout" dest="alt_xcvr_reconfig_0.mgmt_clk_clk">
+			</connection>
+			<connection src="pcie_cv_hip_avmm_0.coreclkout" dest="pcie_reconfig_driver_0.pld_clk">
+			</connection>
+			<connection src="pcie_cv_hip_avmm_0.coreclkout" dest="pcie_reconfig_driver_0.reconfig_xcvr_clk">
+			</connection>
+			<connection src="alt_xcvr_reconfig_0.reconfig_busy" dest="pcie_reconfig_driver_0.reconfig_busy">
+				<parameter name="endPort"></parameter>
+				<parameter name="endPortLSB">0</parameter>
+				<parameter name="startPort"></parameter>
+				<parameter name="startPortLSB">0</parameter>
+				<parameter name="width">0</parameter>
+			</connection>
+			<connection src="pcie_cv_hip_avmm_0.reconfig_from_xcvr" dest="alt_xcvr_reconfig_0.reconfig_from_xcvr">
+				<parameter name="endPort"></parameter>
+				<parameter name="endPortLSB">0</parameter>
+				<parameter name="startPort"></parameter>
+				<parameter name="startPortLSB">0</parameter>
+				<parameter name="width">0</parameter>
+			</connection>
+
+			<connection src="alt_xcvr_reconfig_0.reconfig_to_xcvr" dest="pcie_cv_hip_avmm_0.reconfig_to_xcvr">
+				<parameter name="endPort"></parameter>
+				<parameter name="endPortLSB">0</parameter>
+				<parameter name="startPort"></parameter>
+				<parameter name="startPortLSB">0</parameter>
+				<parameter name="width">0</parameter>
+			</connection>
+			<connection src="pcie_cv_hip_avmm_0.nreset_status" dest="alt_xcvr_reconfig_0.mgmt_rst_reset">
+			</connection>
+			<connection src="pcie_cv_hip_avmm_0.nreset_status" dest="pcie_reconfig_driver_0.reconfig_xcvr_rst">
+			</connection>
+			<connection src="pcie_cv_hip_avmm_0.coreclkout" dest="clock_bridge_0.in_clk">
+			</connection>
+			<connection src="pcie_cv_hip_avmm_0.nreset_status" dest="reset_bridge_0.in_reset">
+			</connection>
+			<connection src="pcie_cv_hip_avmm_0.coreclkout" dest="reset_bridge_0.clk">
+			</connection>
+			<connection src="pcie_cv_hip_avmm_0.Rxm_BAR0" dest="to_external_bus_bridge_0.avalon_slave" >
+				<parameter name="arbitrationPriority">1</parameter>
+				<parameter name="baseAddress">0x4000</parameter>
+				<parameter name="defaultConnection">0</parameter>
+			</connection>
+			<connection src="pcie_cv_hip_avmm_0.coreclkout" dest="to_external_bus_bridge_0.clk" >
+			</connection>
+			<connection src="pcie_cv_hip_avmm_0.nreset_status" dest="to_external_bus_bridge_0.reset" >
+			</connection>
+		</connections>
+		<exports>
+			<export name="hip_serial" src="pcie_cv_hip_avmm_0.hip_serial" type="conduit end" />
+			<export name="npor" src="pcie_cv_hip_avmm_0.npor" type="conduit end" />
+			<export name="refclk" src="pcie_cv_hip_avmm_0.refclk" type="clock sink" />
+			<export name="gls_clk" src="clock_bridge_0.out_clk" type="clock source" />
+			<export name="gls_rst" src="reset_bridge_0.out_reset" type="reset source" />
+			<export name="aval_exp" src="to_external_bus_bridge_0.external_interface" type="conduit end" />
+		</exports>
+	</qsys>
+
+</component>
