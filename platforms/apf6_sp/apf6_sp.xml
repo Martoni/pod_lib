@@ -6,6 +6,10 @@
 
     <fpga family="Cyclone V" device="5CGXFC9A6U19I7" main_clock="125000" out_bin="cvp" />
 
+	<clocks>
+		<clock name="CLK_P" frequency="125" />
+	</clocks>
+
     <components>
         <component name="wrappers/imx6_wb_wrapper"/>
     </components>
