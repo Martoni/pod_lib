@@ -50,7 +50,6 @@
 		<ports>
         	<port name="wbm_clk" type="CLK" size="1" dir="out"/>
    	    	<port name="wbm_rst" type="RST" size="1" dir="out"/>
-			<!--<port name="aval_exp_irq" type="IRQ" size="1" dir="in" />-->
 			<port name="wbm_address" type="ADR" size="12" dir="out" />
 			<port name="wbm_readdata" type="DAT_I" size="64" dir="in" />
 			<port name="wbm_writedata" type="DAT_O" size="64" dir="out" />
@@ -93,12 +92,22 @@
 			<qsys_component name="altera_reset_bridge" instance_name="reset_bridge_0">
 				<parameter name="SYNCHRONOUS_EDGES">both</parameter>
 			</qsys_component>
-			<qsys_component name="altera_up_avalon_to_external_bus_bridge" instance_name="to_external_bus_bridge_0">
-				<parameter name="addr_size" >4</parameter>
-				<parameter name="addr_size_multiplier" >Kbytes</parameter>
-				<parameter name="data_size" >64</parameter>
-				<!--set_instance_parameter_value to_external_bus_bridge_0 AUTO_DEVICE_FAMILY {Cyclone V}
-				set_instance_parameter_value to_external_bus_bridge_0 AUTO_CLK_CLOCK_RATE {125000000.0}-->
+			<qsys_component name="altera_merlin_slave_translator" instance_name="merlin_slave_translator_0" >
+				<parameter name="AV_ADDRESS_W" >12</parameter>
+				<parameter name="AV_DATA_W" >64</parameter>
+				<parameter name="UAV_DATA_W" >64</parameter>
+				<parameter name="AV_BURSTCOUNT_W" >1</parameter>
+				<parameter name="AV_BYTEENABLE_W" >8</parameter>
+				<parameter name="UAV_BYTEENABLE_W" >8</parameter>
+				<parameter name="UAV_ADDRESS_W" >12</parameter>
+				<parameter name="UAV_BURSTCOUNT_W" >1</parameter>
+				<parameter name="USE_BEGINBURSTTRANSFER" >0</parameter>
+				<parameter name="USE_BEGINTRANSFER" >0</parameter>
+				<parameter name="USE_BURSTCOUNT" >0</parameter>
+				<parameter name="USE_WAITREQUEST" >1</parameter>
+				<parameter name="AV_SYMBOLS_PER_WORD" >8</parameter>
+				<parameter name="AV_BURSTCOUNT_SYMBOLS" >1</parameter>
+				<parameter name="AV_ADDRESS_SYMBOLS" >1</parameter>
 			</qsys_component>
 
 		</qsys_components>
@@ -151,14 +160,14 @@
 			</connection>
 			<connection src="pcie_cv_hip_avmm_0.coreclkout" dest="reset_bridge_0.clk">
 			</connection>
-			<connection src="pcie_cv_hip_avmm_0.Rxm_BAR0" dest="to_external_bus_bridge_0.avalon_slave" >
+			<connection src="pcie_cv_hip_avmm_0.Rxm_BAR0" dest="merlin_slave_translator_0.avalon_universal_slave_0" >
 				<parameter name="arbitrationPriority">1</parameter>
 				<parameter name="baseAddress">0x4000</parameter>
 				<parameter name="defaultConnection">0</parameter>
 			</connection>
-			<connection src="pcie_cv_hip_avmm_0.coreclkout" dest="to_external_bus_bridge_0.clk" >
+			<connection src="pcie_cv_hip_avmm_0.coreclkout" dest="merlin_slave_translator_0.clk" >
 			</connection>
-			<connection src="pcie_cv_hip_avmm_0.nreset_status" dest="to_external_bus_bridge_0.reset" >
+			<connection src="pcie_cv_hip_avmm_0.nreset_status" dest="merlin_slave_translator_0.reset" >
 			</connection>
 		</connections>
 		<exports>
@@ -167,7 +176,7 @@
 			<export name="refclk" src="pcie_cv_hip_avmm_0.refclk" type="clock sink" />
 			<export name="gls_clk" src="clock_bridge_0.out_clk" type="clock source" />
 			<export name="gls_rst" src="reset_bridge_0.out_reset" type="reset source" />
-			<export name="aval_exp" src="to_external_bus_bridge_0.external_interface" type="conduit end" />
+			<export name="aval_exp" src="merlin_slave_translator_0.avalon_anti_slave_0" type="conduit end" />
 		</exports>
 	</qsys>
 
