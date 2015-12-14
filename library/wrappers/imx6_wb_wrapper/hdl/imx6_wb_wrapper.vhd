@@ -57,26 +57,21 @@ Architecture RTL of imx6_wb_wrapper is
 			gls_rst_reset : out std_logic;
 			gls_clk_clk : out std_logic;
     		-- aval64
-			aval_exp_acknowledge  : in std_logic;
-			aval_exp_irq  : in std_logic;
 			aval_exp_address  : out std_logic_vector(11 downto 0);
-			aval_exp_bus_enable  : out std_logic;
-			aval_exp_byte_enable : out std_logic_vector(7 downto 0);
-			aval_exp_rw : out std_logic;
-			aval_exp_write_data : out std_logic_vector(63 downto 0);
-			aval_exp_read_data : in std_logic_vector(63 downto 0)
+			aval_exp_read : out std_logic;
+			aval_exp_write : out std_logic;
+			aval_exp_waitrequest : in std_logic;
+			aval_exp_byteenable : out std_logic_vector(7 downto 0);
+			aval_exp_readdatavalid : in std_logic;
+			aval_exp_writedata : out std_logic_vector(63 downto 0);
+			aval_exp_readdata : in std_logic_vector(63 downto 0)
 	);
 	end component;
-		
-    signal write      : std_logic;
-    signal read       : std_logic;
-    signal strobe     : std_logic;
-    signal writedata  : std_logic_vector(15 downto 0);
-    signal address    : std_logic_vector(15 downto 0);
 	signal clk, reset : std_logic;
-	signal aval_exp_rw : std_logic;
+	signal aval_exp_read, aval_exp_write : std_logic;
 	signal bus_enable : std_logic;
-	signal byte_enable : std_logic_vector(7 downto 0);
+	signal wbm_readvalid_s : std_logic;
+	signal waitrequest_next_s : std_logic;
 begin
 
     wbm_clk <= clk;
@@ -97,18 +92,22 @@ begin
             gls_rst_reset => reset,
             gls_clk_clk => clk,
             -- aval64
-            aval_exp_acknowledge => wbm_ack,
-            aval_exp_irq => '0',
+			aval_exp_waitrequest => waitrequest_next_s,
             aval_exp_address => wbm_address,
-            aval_exp_bus_enable => bus_enable,
-            aval_exp_byte_enable => wbm_byte_enable,
-            aval_exp_rw => aval_exp_rw,
-            aval_exp_write_data => wbm_writedata,
-            aval_exp_read_data => wbm_readdata
-    );
+			aval_exp_write => aval_exp_write,
+			aval_exp_read => aval_exp_read,
+			aval_exp_byteenable => wbm_byte_enable,
+			aval_exp_readdatavalid => wbm_readvalid_s,
+            aval_exp_writedata => wbm_writedata,
+            aval_exp_readdata => wbm_readdata
+	);
 
+	waitrequest_next_s <= '1' when (bus_enable ='1' and wbm_ack = '0') else '0';
+
+	wbm_readvalid_s <= (aval_exp_read and wbm_ack);
+	bus_enable <= aval_exp_read or aval_exp_write;
 	wbm_cycle  <= bus_enable;
 	wbm_strobe <= bus_enable;
-    wbm_write  <= not (aval_exp_rw);
+	wbm_write  <= bus_enable and aval_exp_write;
 
 end architecture RTL;
