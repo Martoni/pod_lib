@@ -31,7 +31,7 @@
             </ports>
         </interface>
 
-        <interface name="swb16" class="slave" bus="wishboneExt" data_size="16" >
+        <interface name="swb16" class="slave" bus="wishbone" data_size="16" >
             <registers>
                 <register name="reg_led" offset="0x00" size="16" rows="1" />
                 <register name="id" offset="0x01" size="16" rows="1" />
