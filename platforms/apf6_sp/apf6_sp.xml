@@ -7,17 +7,17 @@
     <fpga family="Cyclone V" device="5CGXFC4C7U19C8" speed="8" package="UBGA"
           pin_count="484" main_clock="125000" out_bin="cvp" />
 
-	<clocks>
-		<clock name="CLK_P" frequency="125" />
-	</clocks>
+    <clocks>
+        <clock name="CLK_P" frequency="125" />
+    </clocks>
 
     <components>
         <component name="wrappers/imx6_wb_wrapper"/>
     </components>
 
-	<toolchain>
-		<option name="CVP_MODE" >"CORE INITIALIZATION AND UPDATE"</option>
-	</toolchain>
+    <toolchain>
+        <option name="CVP_MODE" >"CORE INITIALIZATION AND UPDATE"</option>
+    </toolchain>
 
     <interfaces>
         <interface name="fpga">
@@ -31,7 +31,6 @@
                 <port size="1" standard="1.5-V PCML" position="PIN_Y3" name="PCIE_TX_N" dir="out"/>
                 <port size="1" standard="2.5 V" position="PIN_R17" name="PERST" dir="in"/>
                 <port size="1" standard="2.5 V" position="PIN_R16" name="NPOR" dir="in"/>
-                <port size="1" standard="2.5 V" position="PIN_M10" name="LED0" dir="out"/>
 
                 <!-- DDR3 -->
                 <port size="1" standard="SSTL-135" tag="__ddr3_contr_example_if0_p0" position="PIN_C11" name="MEM_A0" dir="out"/>
@@ -106,6 +105,90 @@
                 <port size="1" standard="SSTL-135" tag="__ddr3_contr_example_if0_p0" position="PIN_A12" name="OCT_RZQIN" dir = "out"/>
 
                 <!-- Hirose -->
+                <port size="1" standard="2.5 V" name="CLKIN0"           position="PIN_R10"   dir="inout"/>
+                <port size="1" standard="2.5 V" name="CLKIN_1N"         position="PIN_R9"    dir="inout"/>
+                <port size="1" standard="2.5 V" name="CLKIN_1P"         position="PIN_P9"    dir="inout"/>
+                <port size="1" standard="2.5 V" name="CLKIN_2N"         position="PIN_R15"   dir="inout"/>
+                <port size="1" standard="2.5 V" name="CLKIN_2P"         position="PIN_T15"   dir="inout"/>
+                <port size="1" standard="2.5 V" name="CLKOUT0"          position="PIN_T10"   dir="inout"/>
+                <port size="1" standard="2.5 V" name="CLKOUT_1N"        position="PIN_G17"   dir="inout"/>
+                <port size="1" standard="2.5 V" name="CLKOUT_1P"        position="PIN_G18"   dir="inout"/>
+                <port size="1" standard="2.5 V" name="CLKOUT_2N"        position="PIN_AB22"  dir="inout"/>
+                <port size="1" standard="2.5 V" name="CLKOUT_2P"        position="PIN_AA22"  dir="inout"/>
+                <port size="1" standard="2.5 V" name="D0"               position="PIN_M10"   dir="inout"/>
+                <port size="1" standard="2.5 V" name="D1"               position="PIN_K15"   dir="inout"/>
+                <port size="1" standard="2.5 V" name="D2"               position="PIN_L9"    dir="inout"/>
+                <port size="1" standard="2.5 V" name="D3"               position="PIN_L15"   dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_RX_N0"       position="PIN_AA9"   dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_RX_N1"       position="PIN_U10"   dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_RX_N2"       position="PIN_U8"    dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_RX_N3"       position="PIN_U12"   dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_RX_N4"       position="PIN_W13"   dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_RX_N5"       position="PIN_W12"   dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_RX_N6"       position="PIN_Y14"   dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_RX_N7"       position="PIN_U16"   dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_RX_N8"       position="PIN_Y16"   dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_RX_N9"       position="PIN_W16"   dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_RX_N10"      position="PIN_V18"   dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_RX_N11"      position="PIN_V19"   dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_RX_N12"      position="PIN_T18"   dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_RX_N13"      position="PIN_J18"   dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_RX_N14"      position="PIN_K19"   dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_RX_N15"      position="PIN_L20"   dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_RX_N16"      position="PIN_P19"   dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_RX_P0"       position="PIN_Y9"    dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_RX_P1"       position="PIN_U11"   dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_RX_P2"       position="PIN_V9"    dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_RX_P3"       position="PIN_T12"   dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_RX_P4"       position="PIN_V13"   dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_RX_P5"       position="PIN_Y12"   dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_RX_P6"       position="PIN_W14"   dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_RX_P7"       position="PIN_U17"   dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_RX_P8"       position="PIN_Y17"   dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_RX_P9"       position="PIN_W17"   dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_RX_P10"      position="PIN_W18"   dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_RX_P11"      position="PIN_V20"   dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_RX_P12"      position="PIN_T17"   dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_RX_P13"      position="PIN_J17"   dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_RX_P14"      position="PIN_L18"   dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_RX_P15"      position="PIN_L19"   dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_RX_P16"      position="PIN_R19"   dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_TX_N0"       position="PIN_W11"   dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_TX_N1"       position="PIN_R12"   dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_TX_N2"       position="PIN_AA13"  dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_TX_N3"       position="PIN_AB10"  dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_TX_N4"       position="PIN_Y10"   dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_TX_N5"       position="PIN_AA15"  dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_TX_N6"       position="PIN_AB15"  dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_TX_N7"       position="PIN_R11"   dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_TX_N8"       position="PIN_AA17"  dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_TX_N9"       position="PIN_AB18"  dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_TX_N10"      position="PIN_AA19"  dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_TX_N11"      position="PIN_R21"   dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_TX_N12"      position="PIN_AB20"  dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_TX_N13"      position="PIN_AA20"  dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_TX_N14"      position="PIN_U21"   dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_TX_N15"      position="PIN_R22"   dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_TX_N16"      position="PIN_G21"   dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_TX_P0"       position="PIN_Y11"   dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_TX_P1"       position="PIN_T13"   dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_TX_P2"       position="PIN_AB13"  dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_TX_P3"       position="PIN_AB11"  dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_TX_P4"       position="PIN_AA10"  dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_TX_P5"       position="PIN_Y15"   dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_TX_P6"       position="PIN_AB16"  dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_TX_P7"       position="PIN_P12"   dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_TX_P8"       position="PIN_AB17"  dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_TX_P9"       position="PIN_AA18"  dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_TX_P10"      position="PIN_Y19"   dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_TX_P11"      position="PIN_R20"   dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_TX_P12"      position="PIN_AB21"  dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_TX_P13"      position="PIN_Y20"   dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_TX_P14"      position="PIN_U22"   dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_TX_P15"      position="PIN_T22"   dir="inout"/>
+                <port size="1" standard="2.5 V" name="LVDS_TX_P16"      position="PIN_G22"   dir="inout"/>
+
+
             </ports>
         </interface>
     </interfaces>
