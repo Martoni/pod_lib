@@ -12,31 +12,47 @@
   	<interface name="pcie" class="gls">
 		<ports>
 			<port name="refclk_clk" type="EXPORT" size="1" dir="in">
-				<pin num="0"> <connect instance_dest="apf6_sp" interface_dest="fpga" port_dest="CLK_P" pin_dest="0"/></pin>
+                <pin num="0">
+                    <connect instance_dest="apf6_sp" interface_dest="fpga" port_dest="CLK_P" pin_dest="0"/>
+                </pin>
 			</port>
 			<port name="refclk_clk(n)" type="EXPORT" size="1" dir="in" hidden="true">
-				<pin num="0"> <connect instance_dest="apf6_sp" interface_dest="fpga" port_dest="CLK_N" pin_dest="0"/></pin>
+                <pin num="0">
+                    <connect instance_dest="apf6_sp" interface_dest="fpga" port_dest="CLK_N" pin_dest="0"/>
+                </pin>
 			</port>
 
 			<port name="hip_serial_tx_out0" type="EXPORT" size="1" dir="out">
-				<pin num="0"> <connect instance_dest="apf6_sp" interface_dest="fpga" port_dest="PCIE_TX_P" pin_dest="0"/></pin>
+                <pin num="0">
+                    <connect instance_dest="apf6_sp" interface_dest="fpga" port_dest="PCIE_TX_P" pin_dest="0"/>
+                </pin>
 			</port>
 			<port name="hip_serial_tx_out0(n)" type="EXPORT" size="1" dir="out" hidden="true">
-				<pin num="0"> <connect instance_dest="apf6_sp" interface_dest="fpga" port_dest="PCIE_TX_N" pin_dest="0"/></pin>
+                <pin num="0">
+                    <connect instance_dest="apf6_sp" interface_dest="fpga" port_dest="PCIE_TX_N" pin_dest="0"/>
+                </pin>
 			</port>
 
 			<port name="hip_serial_rx_in0" type="EXPORT" size="1" dir="in">
-				<pin num="0"> <connect instance_dest="apf6_sp" interface_dest="fpga" port_dest="PCIE_RX_P" pin_dest="0"/></pin>
+                <pin num="0">
+                    <connect instance_dest="apf6_sp" interface_dest="fpga" port_dest="PCIE_RX_P" pin_dest="0"/>
+                </pin>
 			</port>
 			<port name="hip_serial_rx_in0(n)" type="EXPORT" size="1" dir="in" hidden="true">
-				<pin num="0"> <connect instance_dest="apf6_sp" interface_dest="fpga" port_dest="PCIE_RX_N" pin_dest="0"/></pin>
+                <pin num="0">
+                    <connect instance_dest="apf6_sp" interface_dest="fpga" port_dest="PCIE_RX_N" pin_dest="0"/>
+                </pin>
 			</port>
 
 			<port name="npor_pin_perst" type="EXPORT" size="1" dir="in">
-				<pin num="0"> <connect instance_dest="apf6_sp" interface_dest="fpga" port_dest="PERST" pin_dest="0"/></pin>
+                <pin num="0">
+                    <connect instance_dest="apf6_sp" interface_dest="fpga" port_dest="PERST" pin_dest="0"/>
+                </pin>
 			</port>
 			<port name="npor_npor" type="EXPORT" size="1" dir="in">
-				<pin num="0"> <connect instance_dest="apf6_sp" interface_dest="fpga" port_dest="NPOR" pin_dest="0"/></pin>
+                <pin num="0">
+                    <connect instance_dest="apf6_sp" interface_dest="fpga" port_dest="NPOR" pin_dest="0"/>
+                </pin>
 			</port>
 		</ports>
 	</interface>
@@ -160,7 +176,8 @@
 			</connection>
 			<connection src="pcie_cv_hip_avmm_0.coreclkout" dest="reset_bridge_0.clk">
 			</connection>
-			<connection src="pcie_cv_hip_avmm_0.Rxm_BAR0" dest="merlin_slave_translator_0.avalon_universal_slave_0" >
+            <connection src="pcie_cv_hip_avmm_0.Rxm_BAR0"
+                        dest="merlin_slave_translator_0.avalon_universal_slave_0" >
 				<parameter name="arbitrationPriority">1</parameter>
 				<parameter name="baseAddress">0x4000</parameter>
 				<parameter name="defaultConnection">0</parameter>
