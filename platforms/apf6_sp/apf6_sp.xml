@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<platform name="apf6_sp" version="0.1" >
+<platform name="apf6_sp" version="0.2" >
     <description>
         Armadeus apf6_sp card
     </description>
 
-    <fpga family="Cyclone V" device="5CGXFC4C7U19C8" speed="8" package="UBGA" pin_count="484" main_clock="125000" out_bin="cvp" />
+    <fpga family="Cyclone V" device="5CGXFC4C7U19C8" speed="8" package="UBGA"
+          pin_count="484" main_clock="125000" out_bin="cvp" />
 
 	<clocks>
 		<clock name="CLK_P" frequency="125" />
@@ -21,6 +22,7 @@
     <interfaces>
         <interface name="fpga">
             <ports>
+                <!-- PCIe -->
                 <port size="1" standard="1.5-V PCML" position="PIN_V4" name="CLK_P" dir="in"/>
                 <port size="1" standard="1.5-V PCML" position="PIN_U4" name="CLK_N" dir="in"/>
                 <port size="1" standard="1.5-V PCML" position="PIN_AA2" name="PCIE_RX_P" dir="in"/>
@@ -30,6 +32,80 @@
                 <port size="1" standard="2.5 V" position="PIN_R17" name="PERST" dir="in"/>
                 <port size="1" standard="2.5 V" position="PIN_R16" name="NPOR" dir="in"/>
                 <port size="1" standard="2.5 V" position="PIN_M10" name="LED0" dir="out"/>
+
+                <!-- DDR3 -->
+                <port size="1" standard="SSTL-135" tag="__ddr3_contr_example_if0_p0" position="PIN_C11" name="MEM_A0" dir="out"/>
+                <port size="1" standard="SSTL-135" tag="__ddr3_contr_example_if0_p0" position="PIN_B11" name="MEM_A1" dir="out"/>
+                <port size="1" standard="SSTL-135" tag="__ddr3_contr_example_if0_p0" position="PIN_A8"  name="MEM_A2" dir="out"/>
+                <port size="1" standard="SSTL-135" tag="__ddr3_contr_example_if0_p0" position="PIN_A7"  name="MEM_A3" dir="out"/>
+                <port size="1" standard="SSTL-135" tag="__ddr3_contr_example_if0_p0" position="PIN_D11" name="MEM_A4" dir="out"/>
+                <port size="1" standard="SSTL-135" tag="__ddr3_contr_example_if0_p0" position="PIN_E11" name="MEM_A5" dir="out"/>
+                <port size="1" standard="SSTL-135" tag="__ddr3_contr_example_if0_p0" position="PIN_F8"  name="MEM_A6" dir="out"/>
+                <port size="1" standard="SSTL-135" tag="__ddr3_contr_example_if0_p0" position="PIN_E7"  name="MEM_A7" dir="out"/>
+                <port size="1" standard="SSTL-135" tag="__ddr3_contr_example_if0_p0" position="PIN_D9"  name="MEM_A8" dir="out"/>
+                <port size="1" standard="SSTL-135" tag="__ddr3_contr_example_if0_p0" position="PIN_D8"  name="MEM_A9" dir="out"/>
+                <port size="1" standard="SSTL-135" tag="__ddr3_contr_example_if0_p0" position="PIN_B6"  name="MEM_A10" dir="out"/>
+                <port size="1" standard="SSTL-135" tag="__ddr3_contr_example_if0_p0" position="PIN_B5"  name="MEM_A11" dir="out"/>
+                <port size="1" standard="SSTL-135" tag="__ddr3_contr_example_if0_p0" position="PIN_C8"  name="MEM_A12" dir="out"/>
+                <port size="1" standard="SSTL-135" tag="__ddr3_contr_example_if0_p0" position="PIN_B8"  name="MEM_A13" dir="out"/>
+                <port size="1" standard="SSTL-135" tag="__ddr3_contr_example_if0_p0" position="PIN_H6"  name="MEM_A14" dir="out"/>
+
+                <port size="1" standard="SSTL-135" tag="__ddr3_contr_example_if0_p0" position="PIN_C9"  name="MEM_BA2" dir="out"/>
+                <port size="1" standard="SSTL-135" tag="__ddr3_contr_example_if0_p0" position="PIN_C10" name="MEM_BA1" dir="out"/>
+                <port size="1" standard="SSTL-135" tag="__ddr3_contr_example_if0_p0" position="PIN_C6"  name="MEM_BA0" dir="out"/>
+
+                <port size="1" standard="SSTL-135" tag="__ddr3_contr_example_if0_p0" position="PIN_A10" name="MEM_CAS_N" dir="out"/>
+                <port size="1" standard="SSTL-135" tag="__ddr3_contr_example_if0_p0" position="PIN_J9"  name="MEM_CK"    dir="out"/>
+                <port size="1" standard="SSTL-135" tag="__ddr3_contr_example_if0_p0" position="PIN_J8"  name="MEM_CK_N"  dir="out"/>
+                <port size="1" standard="SSTL-135" tag="__ddr3_contr_example_if0_p0" position="PIN_H8"  name="MEM_CS_N"  dir="out"/>
+
+                <port size="1" standard="SSTL-135" tag="__ddr3_contr_example_if0_p0" position="PIN_C21" name="MEM_DM2" dir="out"/>
+                <port size="1" standard="SSTL-135" tag="__ddr3_contr_example_if0_p0" position="PIN_C19" name="MEM_DM1" dir="out"/>
+                <port size="1" standard="SSTL-135" tag="__ddr3_contr_example_if0_p0" position="PIN_A15" name="MEM_DM0" dir="out"/>
+
+                <port size="1" standard="SSTL-135" tag="__ddr3_contr_example_if0_p0" position="PIN_C20" name="MEM_DQ23" dir="inout"/>
+                <port size="1" standard="SSTL-135" tag="__ddr3_contr_example_if0_p0" position="PIN_B20" name="MEM_DQ22" dir="inout"/>
+                <port size="1" standard="SSTL-135" tag="__ddr3_contr_example_if0_p0" position="PIN_D18" name="MEM_DQ21" dir="inout"/>
+                <port size="1" standard="SSTL-135" tag="__ddr3_contr_example_if0_p0" position="PIN_E17" name="MEM_DQ20" dir="inout"/>
+                <port size="1" standard="SSTL-135" tag="__ddr3_contr_example_if0_p0" position="PIN_A22" name="MEM_DQ19" dir="inout"/>
+                <port size="1" standard="SSTL-135" tag="__ddr3_contr_example_if0_p0" position="PIN_A20" name="MEM_DQ18" dir="inout"/>
+                <port size="1" standard="SSTL-135" tag="__ddr3_contr_example_if0_p0" position="PIN_E16" name="MEM_DQ17" dir="inout"/>
+                <port size="1" standard="SSTL-135" tag="__ddr3_contr_example_if0_p0" position="PIN_D17" name="MEM_DQ16" dir="inout"/>
+
+                <port size="1" standard="SSTL-135" tag="__ddr3_contr_example_if0_p0" position="PIN_C18" name="MEM_DQ15" dir="inout"/>
+                <port size="1" standard="SSTL-135" tag="__ddr3_contr_example_if0_p0" position="PIN_B16" name="MEM_DQ14" dir="inout"/>
+                <port size="1" standard="SSTL-135" tag="__ddr3_contr_example_if0_p0" position="PIN_C16" name="MEM_DQ13" dir="inout"/>
+                <port size="1" standard="SSTL-135" tag="__ddr3_contr_example_if0_p0" position="PIN_C15" name="MEM_DQ12" dir="inout"/>
+                <port size="1" standard="SSTL-135" tag="__ddr3_contr_example_if0_p0" position="PIN_A17" name="MEM_DQ11" dir="inout"/>
+                <port size="1" standard="SSTL-135" tag="__ddr3_contr_example_if0_p0" position="PIN_B18" name="MEM_DQ10" dir="inout"/>
+                <port size="1" standard="SSTL-135" tag="__ddr3_contr_example_if0_p0" position="PIN_F15" name="MEM_DQ9" dir="inout"/>
+                <port size="1" standard="SSTL-135" tag="__ddr3_contr_example_if0_p0" position="PIN_E14" name="MEM_DQ8" dir="inout"/>
+                <port size="1" standard="SSTL-135" tag="__ddr3_contr_example_if0_p0" position="PIN_A14" name="MEM_DQ7" dir="inout"/>
+                <port size="1" standard="SSTL-135" tag="__ddr3_contr_example_if0_p0" position="PIN_C14" name="MEM_DQ6" dir="inout"/>
+                <port size="1" standard="SSTL-135" tag="__ddr3_contr_example_if0_p0" position="PIN_D13" name="MEM_DQ5" dir="inout"/>
+                <port size="1" standard="SSTL-135" tag="__ddr3_contr_example_if0_p0" position="PIN_C13" name="MEM_DQ4" dir="inout"/>
+                <port size="1" standard="SSTL-135" tag="__ddr3_contr_example_if0_p0" position="PIN_B13" name="MEM_DQ3" dir="inout"/>
+                <port size="1" standard="SSTL-135" tag="__ddr3_contr_example_if0_p0" position="PIN_B12" name="MEM_DQ2" dir="inout"/>
+                <port size="1" standard="SSTL-135" tag="__ddr3_contr_example_if0_p0" position="PIN_E12" name="MEM_DQ1" dir="inout"/>
+                <port size="1" standard="SSTL-135" tag="__ddr3_contr_example_if0_p0" position="PIN_F12" name="MEM_DQ0" dir="inout"/>
+
+                <port size="1" standard="SSTL-135" tag="__ddr3_contr_example_if0_p0" position="PIN_G15" name="MEM_DQS2" dir="out"/>
+                <port size="1" standard="SSTL-135" tag="__ddr3_contr_example_if0_p0" position="PIN_G14" name="MEM_DQS_N2" dir="out"/>
+
+                <port size="1" standard="SSTL-135" tag="__ddr3_contr_example_if0_p0" position="PIN_G12" name="MEM_DQS1" dir="out"/>
+                <port size="1" standard="SSTL-135" tag="__ddr3_contr_example_if0_p0" position="PIN_H12" name="MEM_DQS_N1" dir="out"/>
+
+                <port size="1" standard="SSTL-135" tag="__ddr3_contr_example_if0_p0" position="PIN_H9" name="MEM_DQS0" dir="out"/>
+                <port size="1" standard="SSTL-135" tag="__ddr3_contr_example_if0_p0" position="PIN_G8" name="MEM_DQS_N0" dir="out"/>
+
+                <port size="1" standard="SSTL-135" tag="__ddr3_contr_example_if0_p0" position="PIN_A13" name="MEM_ODT0" dir = "out"/>
+                <port size="1" standard="SSTL-135" tag="__ddr3_contr_example_if0_p0" position="PIN_B15" name="MEM_CKE0" dir = "out"/>
+                <port size="1" standard="SSTL-135" tag="__ddr3_contr_example_if0_p0" position="PIN_A9"  name="MEM_RAS_N0" dir = "out"/>
+                <port size="1" standard="SSTL-135" tag="__ddr3_contr_example_if0_p0" position="PIN_E6"  name="MEM_WE_N0" dir = "out"/>
+                <port size="1" standard="SSTL-135" tag="__ddr3_contr_example_if0_p0" position="PIN_B22" name="MEM_RESET_N" dir = "out"/>
+                <port size="1" standard="SSTL-135" tag="__ddr3_contr_example_if0_p0" position="PIN_A12" name="OCT_RZQIN" dir = "out"/>
+
+                <!-- Hirose -->
             </ports>
         </interface>
     </interfaces>
