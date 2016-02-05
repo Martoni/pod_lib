@@ -190,6 +190,19 @@
                 <port size="1" standard="2.5 V" position="PIN_G21"  name="LVDS_TX_N16" dir="inout"/>
                 <port size="1" standard="2.5 V" position="PIN_G22"  name="LVDS_TX_P16" dir="inout"/>
 
+                <port size="1" standard="2.5 V" position="PIN_W1"   name="XCVR_RX_N0"  dir="inout"/>
+                <port size="1" standard="2.5 V" position="PIN_W2"   name="XCVR_RX_P0"  dir="inout"/>
+                <port size="1" standard="2.5 V" position="PIN_R1"   name="XCVR_RX_N1"  dir="inout"/>
+                <port size="1" standard="2.5 V" position="PIN_R2"   name="XCVR_RX_P1"  dir="inout"/>
+                <port size="1" standard="2.5 V" position="PIN_L1"   name="XCVR_RX_N2"  dir="inout"/>
+                <port size="1" standard="2.5 V" position="PIN_L2"   name="XCVR_RX_P2"  dir="inout"/>
+
+                <port size="1" standard="2.5 V" position="PIN_U1"   name="XCVR_TX_N0"  dir="inout"/>
+                <port size="1" standard="2.5 V" position="PIN_U2"   name="XCVR_TX_P0"  dir="inout"/>
+                <port size="1" standard="2.5 V" position="PIN_N1"   name="XCVR_TX_N1"  dir="inout"/>
+                <port size="1" standard="2.5 V" position="PIN_N2"   name="XCVR_TX_P1"  dir="inout"/>
+                <port size="1" standard="2.5 V" position="PIN_J1"   name="XCVR_TX_N2"  dir="inout"/>
+                <port size="1" standard="2.5 V" position="PIN_J2"   name="XCVR_TX_P2"  dir="inout"/>
             </ports>
         </interface>
     </interfaces>
