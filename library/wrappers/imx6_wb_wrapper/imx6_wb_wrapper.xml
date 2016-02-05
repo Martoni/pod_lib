@@ -12,56 +12,61 @@
     <interface name="pcie" class="gls">
     <ports>
       <port name="refclk_clk" type="EXPORT" size="1" dir="in">
-                <pin num="0">
-                    <connect instance_dest="apf6_sp" interface_dest="fpga" port_dest="CLK_P" pin_dest="0"/>
-                </pin>
+        <pin num="0">
+          <connect instance_dest="apf6_sp" interface_dest="fpga" port_dest="CLK_P" pin_dest="0"/>
+        </pin>
       </port>
       <port name="refclk_clk(n)" type="EXPORT" size="1" dir="in" hidden="true">
-                <pin num="0">
-                    <connect instance_dest="apf6_sp" interface_dest="fpga" port_dest="CLK_N" pin_dest="0"/>
-                </pin>
+        <pin num="0">
+          <connect instance_dest="apf6_sp" interface_dest="fpga" port_dest="CLK_N" pin_dest="0"/>
+        </pin>
       </port>
 
       <port name="hip_serial_tx_out0" type="EXPORT" size="1" dir="out">
-                <pin num="0">
-                    <connect instance_dest="apf6_sp" interface_dest="fpga" port_dest="PCIE_TX_P" pin_dest="0"/>
-                </pin>
+        <pin num="0">
+          <connect instance_dest="apf6_sp" interface_dest="fpga" port_dest="PCIE_TX_P" pin_dest="0"/>
+        </pin>
       </port>
       <port name="hip_serial_tx_out0(n)" type="EXPORT" size="1" dir="out" hidden="true">
-                <pin num="0">
-                    <connect instance_dest="apf6_sp" interface_dest="fpga" port_dest="PCIE_TX_N" pin_dest="0"/>
-                </pin>
+        <pin num="0">
+          <connect instance_dest="apf6_sp" interface_dest="fpga" port_dest="PCIE_TX_N" pin_dest="0"/>
+        </pin>
       </port>
 
       <port name="hip_serial_rx_in0" type="EXPORT" size="1" dir="in">
-                <pin num="0">
-                    <connect instance_dest="apf6_sp" interface_dest="fpga" port_dest="PCIE_RX_P" pin_dest="0"/>
-                </pin>
+        <pin num="0">
+          <connect instance_dest="apf6_sp" interface_dest="fpga" port_dest="PCIE_RX_P" pin_dest="0"/>
+        </pin>
       </port>
       <port name="hip_serial_rx_in0(n)" type="EXPORT" size="1" dir="in" hidden="true">
-                <pin num="0">
-                    <connect instance_dest="apf6_sp" interface_dest="fpga" port_dest="PCIE_RX_N" pin_dest="0"/>
-                </pin>
+        <pin num="0">
+          <connect instance_dest="apf6_sp" interface_dest="fpga" port_dest="PCIE_RX_N" pin_dest="0"/>
+        </pin>
       </port>
 
       <port name="npor_pin_perst" type="EXPORT" size="1" dir="in">
-                <pin num="0">
-                    <connect instance_dest="apf6_sp" interface_dest="fpga" port_dest="PERST" pin_dest="0"/>
-                </pin>
+        <pin num="0">
+          <connect instance_dest="apf6_sp" interface_dest="fpga" port_dest="PERST" pin_dest="0"/>
+        </pin>
       </port>
       <port name="npor_npor" type="EXPORT" size="1" dir="in">
-                <pin num="0">
-                    <connect instance_dest="apf6_sp" interface_dest="fpga" port_dest="NPOR" pin_dest="0"/>
-                </pin>
+        <pin num="0">
+          <connect instance_dest="apf6_sp" interface_dest="fpga" port_dest="NPOR" pin_dest="0"/>
+        </pin>
       </port>
     </ports>
   </interface>
-    <interface name="candroutput" class="master" bus="candr">
-      <ports>
-        <port name="rst_o" type="RST" size="1" dir="out"/>
-        <port name="clk_o" type="CLK" size="1" dir="out"/>
-      </ports>
-    </interface>
+  <interface name="candroutput" class="master" bus="candr">
+    <ports>
+      <port name="rst_o" type="RST" size="1" dir="out"/>
+      <port name="clk_o" type="CLK" size="1" dir="out"/>
+    </ports>
+  </interface>
+  <interface name="irq" class="gls">
+    <ports>
+        <port name="irq_irq" type="EXPORT" size="16" dir="in" variable_size="1" />
+    </ports>
+  </interface>
   <interface name="aval64" class="master" bus="wishbone" data_size="64">
     <ports>
       <port name="wbm_clk" type="CLK" size="1" dir="out"/>
@@ -191,6 +196,7 @@
       <export name="hip_serial" src="pcie_cv_hip_avmm_0.hip_serial" type="conduit end" />
       <export name="npor" src="pcie_cv_hip_avmm_0.npor" type="conduit end" />
       <export name="refclk" src="pcie_cv_hip_avmm_0.refclk" type="clock sink" />
+      <export name="irq" src="pcie_cv_hip_avmm_0.RxmIrq" type="interrupt receiver" />
       <export name="gls_clk" src="clock_bridge_0.out_clk" type="clock source" />
       <export name="gls_rst" src="reset_bridge_0.out_reset" type="reset source" />
       <export name="aval_exp" src="merlin_slave_translator_0.avalon_anti_slave_0" type="conduit end" />
