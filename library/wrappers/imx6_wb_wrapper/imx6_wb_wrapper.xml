@@ -64,7 +64,7 @@
   </interface>
   <interface name="irq" class="gls">
     <ports>
-        <port name="irq_irq" type="EXPORT" size="16" dir="in" variable_size="1" />
+        <port name="irq_irq" type="EXPORT" size="16" dir="in" />
     </ports>
   </interface>
   <interface name="aval64" class="master" bus="wishbone" data_size="64">
