@@ -17,7 +17,8 @@ use IEEE.numeric_std.all;
 Entity button is
 ---------------------------------------------------------------------------
     generic(
-        id : natural := 2
+        id : natural := 2;
+        wb_size: natural := 16
     );
     port
     (
@@ -26,7 +27,7 @@ Entity button is
         wbs_clk     : in std_logic ;
         -- Wishbone signals
         wbs_add     : in std_logic ;
-        wbs_readdata  : out std_logic_vector( 15 downto 0);
+        wbs_readdata  : out std_logic_vector(wb_size-1 downto 0);
         wbs_strobe    : in std_logic ;
         wbs_cycle    : in std_logic ;
         wbs_write      : in std_logic ;
@@ -43,7 +44,7 @@ end entity;
 Architecture button_1 of button is
     ---------------------------------------------------------------------------
     signal button_r : std_logic ;
-    signal reg : std_logic_vector( 15 downto 0);
+    signal reg : std_logic_vector(wb_size-1 downto 0);
     signal readdata_s : std_logic_vector(wb_size-1 downto 0);
 begin
 
@@ -53,7 +54,7 @@ begin
         if wbs_reset = '1' then
             reg <= (others => '0');
         elsif rising_edge(wbs_clk) then
-            reg <= "000000000000000"&button;
+            reg(0) <= button;
         end if;
     end process cbutton;
 
@@ -87,7 +88,7 @@ begin
             if(wbs_strobe = '1' and wbs_write = '0' and wbs_cycle = '1')then
                 wbs_ack <= '1';
                 if wbs_add = '0' then
-                    readdata_s <= std_logic_vector(to_unsigned(id,16));
+                    readdata_s <= std_logic_vector(to_unsigned(id, wb_size));
                 else
                     readdata_s <= reg;
                 end if;
