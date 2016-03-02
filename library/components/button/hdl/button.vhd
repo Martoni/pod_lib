@@ -19,80 +19,81 @@ Entity button is
     generic(
         id : natural := 2
     );
-	port
-	(
-		-- global signals
-		wbs_reset : in std_logic ;
-		wbs_clk 	: in std_logic ;
-		-- Wishbone signals
+    port
+    (
+        -- global signals
+        wbs_reset : in std_logic ;
+        wbs_clk     : in std_logic ;
+        -- Wishbone signals
         wbs_add     : in std_logic ;
-		wbs_readdata  : out std_logic_vector( 15 downto 0);
-		wbs_strobe    : in std_logic ;
-		wbs_cycle    : in std_logic ;
-		wbs_write	  : in std_logic ;
-		wbs_ack	      : out std_logic;
-		-- irq
-		irq : out std_logic ;
-		-- fpga input
-		button 		: in std_logic
-	);
+        wbs_readdata  : out std_logic_vector( 15 downto 0);
+        wbs_strobe    : in std_logic ;
+        wbs_cycle    : in std_logic ;
+        wbs_write      : in std_logic ;
+        wbs_ack          : out std_logic;
+        -- irq
+        irq : out std_logic ;
+        -- fpga input
+        button         : in std_logic
+    );
 end entity;
 
 
 ---------------------------------------------------------------------------
 Architecture button_1 of button is
-	---------------------------------------------------------------------------
-	signal button_r : std_logic ;
-	signal reg : std_logic_vector( 15 downto 0);
+    ---------------------------------------------------------------------------
+    signal button_r : std_logic ;
+    signal reg : std_logic_vector( 15 downto 0);
+    signal readdata_s : std_logic_vector(wb_size-1 downto 0);
 begin
 
-	-- connect button
-	cbutton : process(wbs_clk, wbs_reset)
-	begin
-		if wbs_reset = '1' then
-			reg <= (others => '0');
-		elsif rising_edge(wbs_clk) then
-			reg <= "000000000000000"&button;
-		end if;
-	end process cbutton;
+    -- connect button
+    cbutton : process(wbs_clk, wbs_reset)
+    begin
+        if wbs_reset = '1' then
+            reg <= (others => '0');
+        elsif rising_edge(wbs_clk) then
+            reg <= "000000000000000"&button;
+        end if;
+    end process cbutton;
 
 
-	-- rise interruption
-	pbutton : process(wbs_clk, wbs_reset)
-	begin
-		if wbs_reset = '1' then
-			irq <= '0';
-			button_r <= '0';
-		elsif rising_edge(wbs_clk) then
-			if button_r /= button then
-				irq <= '1';
-			else
-				irq <= '0';
-			end if;
-			button_r <= button;
-		end if;
-	end process pbutton;
-
-	-- register reading process
-	pread : process(wbs_clk, wbs_reset)
-	begin
-		if( wbs_reset = '1') then
-			wbs_ack <= '0';
-			wbs_readdata <= (others => '0');
-		elsif(rising_edge(wbs_clk)) then
-            wbs_ack <= '0';
-			if(wbs_strobe = '1' and wbs_write = '0' and wbs_cycle = '1')then
-    			wbs_ack <= '1';
-                if wbs_add = '0' then
-	    			wbs_readdata <= std_logic_vector(to_unsigned(id,16));
-                else
-                    wbs_readdata <= reg;
-                end if;
+    -- rise interruption
+    pbutton : process(wbs_clk, wbs_reset)
+    begin
+        if wbs_reset = '1' then
+            irq <= '0';
+            button_r <= '0';
+        elsif rising_edge(wbs_clk) then
+            if button_r /= button then
+                irq <= '1';
             else
-                wbs_readdata <= (others => '0');
+                irq <= '0';
             end if;
-		end if;
-	end process pread;
+            button_r <= button;
+        end if;
+    end process pbutton;
+
+    -- register reading process
+    wbs_readdata <= readdata_s;
+    pread : process(wbs_clk, wbs_reset)
+    begin
+        if( wbs_reset = '1') then
+            wbs_ack <= '0';
+            readdata_s <= (others => '0');
+        elsif(rising_edge(wbs_clk)) then
+            wbs_ack <= '0';
+            readdata_s <= readdata_s;
+            if(wbs_strobe = '1' and wbs_write = '0' and wbs_cycle = '1')then
+                wbs_ack <= '1';
+                if wbs_add = '0' then
+                    readdata_s <= std_logic_vector(to_unsigned(id,16));
+                else
+                    readdata_s <= reg;
+                end if;
+            end if;
+        end if;
+    end process pread;
 
 end architecture button_1;
 

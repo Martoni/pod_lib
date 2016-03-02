@@ -37,12 +37,13 @@ end entity led;
 
 Architecture led_1 of led is
     signal reg : std_logic_vector( wb_size-1 downto 0);
+    signal readdata_s : std_logic_vector(wb_size-1 downto 0);
 begin
 
     -- connect led
     led <= reg(0);
     wbs_ack <= wbs_strobe;
-    
+
     -- manage register
     write_bloc : process(wbs_clk, wbs_reset)
     begin
@@ -55,22 +56,22 @@ begin
                 reg <= reg;
             end if;
         end if;
-    
+
     end process write_bloc;
-    
+
+    wbs_readdata <= readdata_s;
     read_bloc : process(wbs_clk, wbs_reset)
     begin
         if wbs_reset = '1' then
-            wbs_readdata <= (others => '0');
+            readdata_s <= (others => '0');
         elsif rising_edge(wbs_clk) then
+            readdata_s <= readdata_s;
             if (wbs_strobe = '1' and wbs_write = '0'  and wbs_cycle = '1' ) then
                 if wbs_add = '0' then
-                    wbs_readdata <= reg;
+                    readdata_s <= reg;
                 else
-                    wbs_readdata <= std_logic_vector(to_unsigned(id,wb_size));
+                    readdata_s <= std_logic_vector(to_unsigned(id,wb_size));
                 end if;
-            else
-                wbs_readdata <= (others => '0');
             end if;
         end if;
     end process read_bloc;
