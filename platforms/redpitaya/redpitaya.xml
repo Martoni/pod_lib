@@ -7,7 +7,7 @@
       <fpga family="Zynq-7000" device="xc7z010clg400-1" speed="-1" package="CLG400" main_clock="1250000"/>
 	
 	<components>
-		<component name="wrapper/redpitaya_axi_wrapper"/>
+		<component name="wrappers/redpitaya_axi_wrapper"/>
 	</components>
 
     <interfaces>
