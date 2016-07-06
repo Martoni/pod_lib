@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component name="blinker" version="1.0">
+    <description>
+        Component for blinker.
+    </description>
+
+    <interrupts/>
+
+    <generics>
+		<generic name="NB_LEDS" public="true" value="1" match="\d+" type="natural" destination="both" />
+		<generic name="prescaler" public="true" value="10000" match="\d+"  type="natural" destination="both" />
+    </generics>
+
+    <hdl_files>
+        <hdl_file filename="blinker.vhd" scope="both" istop="1" />
+    </hdl_files>
+	<interfaces>
+		<interface name="candrinput" class="slave" bus="candr">
+			<ports>
+				<port name="clk_i" type="CLK" size="1" dir="in" />
+				<port name="rst_i" type="RST" size="1" dir="in" />
+			</ports>
+		</interface>
+		<interface name="output" class="gls" >
+			<ports>
+				<port name="output_o" type="EXPORT" size="NB_LEDS" dir="out" />
+			</ports>
+		</interface>
+    </interfaces>
+</component>
