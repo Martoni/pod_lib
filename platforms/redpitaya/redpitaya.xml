@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<platform name="redpitaya" version="1.0" >
+    <description>
+		Redpitaya board
+    </description>
+
+      <fpga family="Zynq-7000" device="xc7z010clg400-1" speed="-1" package="CLG400" main_clock="1250000"/>
+	
+	<components>
+		<component name="wrapper/redpitaya_axi_wrapper"/>
+	</components>
+
+    <interfaces>
+        <interface name="fpga">
+            <ports>
+					<port size="1" name="LED0" position="F16" dir="inout" standard="LVCMOS33" />
+					<port size="1" name="LED1" position="F17" dir="inout" standard="LVCMOS33" />
+					<port size="1" name="LED2" position="G15" dir="inout" standard="LVCMOS33" />
+					<port size="1" name="LED3" position="H15" dir="inout" standard="LVCMOS33" />
+					<port size="1" name="LED4" position="K14" dir="inout" standard="LVCMOS33" />
+					<port size="1" name="LED5" position="G14" dir="inout" standard="LVCMOS33" />
+					<port size="1" name="LED6" position="J15" dir="inout" standard="LVCMOS33" />
+					<port size="1" name="LED7" position="J14" dir="inout" standard="LVCMOS33" />
+
+            		<port name="FIXED_IO_ddr_vrn" constr_hidden="1" dir="inout" size="1" />
+            		<port name="FIXED_IO_ddr_vrp" constr_hidden="1" dir="inout" size="1" />
+            		<port name="FIXED_IO_mmio0" constr_hidden="1" dir="inout" size="1" />
+            		<port name="FIXED_IO_mmio1" constr_hidden="1" dir="inout" size="1" />
+            		<port name="FIXED_IO_mmio2" constr_hidden="1" dir="inout" size="1" />
+            		<port name="FIXED_IO_mmio3" constr_hidden="1" dir="inout" size="1" />
+            		<port name="FIXED_IO_mmio4" constr_hidden="1" dir="inout" size="1" />
+            		<port name="FIXED_IO_mmio5" constr_hidden="1" dir="inout" size="1" />
+            		<port name="FIXED_IO_mmio6" constr_hidden="1" dir="inout" size="1" />
+            		<port name="FIXED_IO_mmio7" constr_hidden="1" dir="inout" size="1" />
+            		<port name="FIXED_IO_mmio8" constr_hidden="1" dir="inout" size="1" />
+            		<port name="FIXED_IO_mmio9" constr_hidden="1" dir="inout" size="1" />
+            		<port name="FIXED_IO_mmio10" constr_hidden="1" dir="inout" size="1" />
+            		<port name="FIXED_IO_mmio11" constr_hidden="1" dir="inout" size="1" />
+            		<port name="FIXED_IO_mmio12" constr_hidden="1" dir="inout" size="1" />
+            		<port name="FIXED_IO_mmio13" constr_hidden="1" dir="inout" size="1" />
+            		<port name="FIXED_IO_mmio14" constr_hidden="1" dir="inout" size="1" />
+            		<port name="FIXED_IO_mmio15" constr_hidden="1" dir="inout" size="1" />
+            		<port name="FIXED_IO_mmio16" constr_hidden="1" dir="inout" size="1" />
+            		<port name="FIXED_IO_mmio17" constr_hidden="1" dir="inout" size="1" />
+            		<port name="FIXED_IO_mmio18" constr_hidden="1" dir="inout" size="1" />
+            		<port name="FIXED_IO_mmio19" constr_hidden="1" dir="inout" size="1" />
+            		<port name="FIXED_IO_mmio20" constr_hidden="1" dir="inout" size="1" />
+            		<port name="FIXED_IO_mmio21" constr_hidden="1" dir="inout" size="1" />
+            		<port name="FIXED_IO_mmio22" constr_hidden="1" dir="inout" size="1" />
+            		<port name="FIXED_IO_mmio23" constr_hidden="1" dir="inout" size="1" />
+            		<port name="FIXED_IO_mmio24" constr_hidden="1" dir="inout" size="1" />
+            		<port name="FIXED_IO_mmio25" constr_hidden="1" dir="inout" size="1" />
+            		<port name="FIXED_IO_mmio26" constr_hidden="1" dir="inout" size="1" />
+            		<port name="FIXED_IO_mmio27" constr_hidden="1" dir="inout" size="1" />
+            		<port name="FIXED_IO_mmio28" constr_hidden="1" dir="inout" size="1" />
+            		<port name="FIXED_IO_mmio29" constr_hidden="1" dir="inout" size="1" />
+            		<port name="FIXED_IO_mmio30" constr_hidden="1" dir="inout" size="1" />
+            		<port name="FIXED_IO_mmio31" constr_hidden="1" dir="inout" size="1" />
+            		<port name="FIXED_IO_mmio32" constr_hidden="1" dir="inout" size="1" />
+            		<port name="FIXED_IO_mmio33" constr_hidden="1" dir="inout" size="1" />
+            		<port name="FIXED_IO_mmio34" constr_hidden="1" dir="inout" size="1" />
+            		<port name="FIXED_IO_mmio35" constr_hidden="1" dir="inout" size="1" />
+            		<port name="FIXED_IO_mmio36" constr_hidden="1" dir="inout" size="1" />
+            		<port name="FIXED_IO_mmio37" constr_hidden="1" dir="inout" size="1" />
+            		<port name="FIXED_IO_mmio38" constr_hidden="1" dir="inout" size="1" />
+            		<port name="FIXED_IO_mmio39" constr_hidden="1" dir="inout" size="1" />
+            		<port name="FIXED_IO_mmio40" constr_hidden="1" dir="inout" size="1" />
+            		<port name="FIXED_IO_mmio41" constr_hidden="1" dir="inout" size="1" />
+            		<port name="FIXED_IO_mmio42" constr_hidden="1" dir="inout" size="1" />
+            		<port name="FIXED_IO_mmio43" constr_hidden="1" dir="inout" size="1" />
+            		<port name="FIXED_IO_mmio44" constr_hidden="1" dir="inout" size="1" />
+            		<port name="FIXED_IO_mmio45" constr_hidden="1" dir="inout" size="1" />
+            		<port name="FIXED_IO_mmio46" constr_hidden="1" dir="inout" size="1" />
+            		<port name="FIXED_IO_mmio47" constr_hidden="1" dir="inout" size="1" />
+            		<port name="FIXED_IO_mmio48" constr_hidden="1" dir="inout" size="1" />
+            		<port name="FIXED_IO_mmio49" constr_hidden="1" dir="inout" size="1" />
+            		<port name="FIXED_IO_mmio50" constr_hidden="1" dir="inout" size="1" />
+            		<port name="FIXED_IO_mmio51" constr_hidden="1" dir="inout" size="1" />
+            		<port name="FIXED_IO_mmio52" constr_hidden="1" dir="inout" size="1" />
+            		<port name="FIXED_IO_mmio53" constr_hidden="1" dir="inout" size="1" />
+
+            		<port name="FIXED_IO_ps_clk" constr_hidden="1" dir="inout" size="1" />
+            		<port name="FIXED_IO_ps_porb" constr_hidden="1" dir="inout" size="1" />
+            		<port name="FIXED_IO_ps_srstb" constr_hidden="1" dir="inout" size="1" />
+
+
+					<port name="ddr_addr0" constr_hidden="1" size="1" dir="inout" />
+					<port name="ddr_addr1" constr_hidden="1" size="1" dir="inout" />
+					<port name="ddr_addr2" constr_hidden="1" size="1" dir="inout" />
+					<port name="ddr_addr3" constr_hidden="1" size="1" dir="inout" />
+					<port name="ddr_addr4" constr_hidden="1" size="1" dir="inout" />
+					<port name="ddr_addr5" constr_hidden="1" size="1" dir="inout" />
+					<port name="ddr_addr6" constr_hidden="1" size="1" dir="inout" />
+					<port name="ddr_addr7" constr_hidden="1" size="1" dir="inout" />
+					<port name="ddr_addr8" constr_hidden="1" size="1" dir="inout" />
+					<port name="ddr_addr9" constr_hidden="1" size="1" dir="inout" />
+					<port name="ddr_addr10" constr_hidden="1" size="1" dir="inout" />
+					<port name="ddr_addr11" constr_hidden="1" size="1" dir="inout" />
+					<port name="ddr_addr12" constr_hidden="1" size="1" dir="inout" />
+					<port name="ddr_addr13" constr_hidden="1" size="1" dir="inout" />
+					<port name="ddr_addr14" constr_hidden="1" size="1" dir="inout" />
+            		<port name="ddr_ba0" constr_hidden="1" dir="inout" size="1" />
+            		<port name="ddr_ba1" constr_hidden="1" dir="inout" size="1" />
+            		<port name="ddr_ba2" constr_hidden="1" dir="inout" size="1" />
+            		<port name="ddr_cas_n" constr_hidden="1" dir="inout" size="1" />
+            		<port name="ddr_ck_n" constr_hidden="1" dir="inout" size="1" />
+           			<port name="ddr_ck_p" constr_hidden="1" dir="inout" size="1" />
+            		<port name="ddr_cke" constr_hidden="1" dir="inout" size="1" />
+            		<port name="ddr_cs_n" constr_hidden="1" dir="inout" size="1" />
+            		<port name="ddr_dm0" constr_hidden="1" dir="inout" size="1" />
+            		<port name="ddr_dm1" constr_hidden="1" dir="inout" size="1" />
+            		<port name="ddr_dm2" constr_hidden="1" dir="inout" size="1" />
+            		<port name="ddr_dm3" constr_hidden="1" dir="inout" size="1" />
+		            <port name="ddr_dq0" constr_hidden="1" dir="inout" size="1" />
+		            <port name="ddr_dq1" constr_hidden="1" dir="inout" size="1" />
+		            <port name="ddr_dq2" constr_hidden="1" dir="inout" size="1" />
+		            <port name="ddr_dq3" constr_hidden="1" dir="inout" size="1" />
+		            <port name="ddr_dq4" constr_hidden="1" dir="inout" size="1" />
+		            <port name="ddr_dq5" constr_hidden="1" dir="inout" size="1" />
+		            <port name="ddr_dq6" constr_hidden="1" dir="inout" size="1" />
+		            <port name="ddr_dq7" constr_hidden="1" dir="inout" size="1" />
+		            <port name="ddr_dq8" constr_hidden="1" dir="inout" size="1" />
+		            <port name="ddr_dq9" constr_hidden="1" dir="inout" size="1" />
+		            <port name="ddr_dq10" constr_hidden="1" dir="inout" size="1" />
+		            <port name="ddr_dq11" constr_hidden="1" dir="inout" size="1" />
+		            <port name="ddr_dq12" constr_hidden="1" dir="inout" size="1" />
+		            <port name="ddr_dq13" constr_hidden="1" dir="inout" size="1" />
+		            <port name="ddr_dq14" constr_hidden="1" dir="inout" size="1" />
+		            <port name="ddr_dq15" constr_hidden="1" dir="inout" size="1" />
+		            <port name="ddr_dq16" constr_hidden="1" dir="inout" size="1" />
+		            <port name="ddr_dq17" constr_hidden="1" dir="inout" size="1" />
+		            <port name="ddr_dq18" constr_hidden="1" dir="inout" size="1" />
+		            <port name="ddr_dq19" constr_hidden="1" dir="inout" size="1" />
+		            <port name="ddr_dq20" constr_hidden="1" dir="inout" size="1" />
+		            <port name="ddr_dq21" constr_hidden="1" dir="inout" size="1" />
+		            <port name="ddr_dq22" constr_hidden="1" dir="inout" size="1" />
+		            <port name="ddr_dq23" constr_hidden="1" dir="inout" size="1" />
+		            <port name="ddr_dq24" constr_hidden="1" dir="inout" size="1" />
+		            <port name="ddr_dq25" constr_hidden="1" dir="inout" size="1" />
+		            <port name="ddr_dq26" constr_hidden="1" dir="inout" size="1" />
+		            <port name="ddr_dq27" constr_hidden="1" dir="inout" size="1" />
+		            <port name="ddr_dq28" constr_hidden="1" dir="inout" size="1" />
+		            <port name="ddr_dq29" constr_hidden="1" dir="inout" size="1" />
+		            <port name="ddr_dq30" constr_hidden="1" dir="inout" size="1" />
+		            <port name="ddr_dq31" constr_hidden="1" dir="inout" size="1" />
+
+       				<port name="ddr_dqs_n0" constr_hidden="1" dir="inout" size="1" />
+       				<port name="ddr_dqs_n1" constr_hidden="1" dir="inout" size="1" />
+       				<port name="ddr_dqs_n2" constr_hidden="1" dir="inout" size="1" />
+       				<port name="ddr_dqs_n3" constr_hidden="1" dir="inout" size="1" />
+            		<port name="ddr_dqs_p0" constr_hidden="1" dir="inout" size="1" />
+            		<port name="ddr_dqs_p1" constr_hidden="1" dir="inout" size="1" />
+            		<port name="ddr_dqs_p2" constr_hidden="1" dir="inout" size="1" />
+            		<port name="ddr_dqs_p3" constr_hidden="1" dir="inout" size="1" />
+            		<port name="ddr_odt" constr_hidden="1" dir="inout" size="1" />
+            		<port name="ddr_ras_n" constr_hidden="1" dir="inout" size="1" />
+            		<port name="ddr_reset_n" constr_hidden="1" dir="inout" size="1" />
+            		<port name="ddr_we_n" constr_hidden="1" dir="inout" size="1" />
+            </ports>
+        </interface>
+    </interfaces>
+
+</platform>
