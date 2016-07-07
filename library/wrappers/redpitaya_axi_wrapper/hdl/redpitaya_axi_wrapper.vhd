@@ -25,6 +25,29 @@ port
 	clk_o : out std_logic;
 	rst_o : out std_logic;
 
+	-- axi4lite comm
+	M00_AXI_clk_o : out std_logic;
+	M00_AXI_rst_o : out std_logic;
+	M00_AXI_araddr : out STD_LOGIC_VECTOR ( 31 downto 0 );
+	M00_AXI_arprot : out STD_LOGIC_VECTOR ( 2 downto 0 );
+	M00_AXI_arready : in STD_LOGIC;
+	M00_AXI_arvalid : out STD_LOGIC;
+	M00_AXI_awaddr : out STD_LOGIC_VECTOR ( 31 downto 0 );
+	M00_AXI_awprot : out STD_LOGIC_VECTOR ( 2 downto 0 );
+	M00_AXI_awready : in STD_LOGIC;
+	M00_AXI_awvalid : out STD_LOGIC;
+	M00_AXI_bready : out STD_LOGIC;
+	M00_AXI_bresp : in STD_LOGIC_VECTOR ( 1 downto 0 );
+	M00_AXI_bvalid : in STD_LOGIC;
+	M00_AXI_rdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
+	M00_AXI_rready : out STD_LOGIC;
+	M00_AXI_rresp : in STD_LOGIC_VECTOR ( 1 downto 0 );
+	M00_AXI_rvalid : in STD_LOGIC;
+	M00_AXI_wdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
+	M00_AXI_wready : in STD_LOGIC;
+	M00_AXI_wstrb : out STD_LOGIC_VECTOR ( 3 downto 0 );
+	M00_AXI_wvalid : out STD_LOGIC;
+
 	-- zynq specific part
    	DDR_addr : inout STD_LOGIC_VECTOR ( 14 downto 0 );
    	DDR_ba : inout STD_LOGIC_VECTOR ( 2 downto 0 );
@@ -102,10 +125,15 @@ Architecture RTL of redpitaya_axi_wrapper is
 	end component redpitaya_axi_wrapper_bd;	
 
 	signal clk, reset : std_logic;
+	signal awaddr_s, araddr_s : std_logic_vector(31 downto 0);
 begin
 
     clk_o <= clk;
     rst_o <= reset;
+    M00_AXI_clk_o <= clk;
+    M00_AXI_rst_o <= reset;
+    M00_AXI_araddr <= std_logic_vector(unsigned(araddr_s)-x"43C00000");
+    M00_AXI_awaddr <= std_logic_vector(unsigned(awaddr_s)-x"43C00000");
 
 	u0 : component redpitaya_axi_wrapper_bd
   	port map (
@@ -133,24 +161,24 @@ begin
     	FIXED_IO_ps_clk => FIXED_IO_ps_clk,
     	FIXED_IO_ps_porb => FIXED_IO_ps_porb,
     	FIXED_IO_ps_srstb => FIXED_IO_ps_srstb,
-    	M00_AXI_araddr => open,
-    	M00_AXI_arprot => open,
-    	M00_AXI_arready => '0',
-    	M00_AXI_arvalid => open,
-    	M00_AXI_awaddr => open,
-    	M00_AXI_awprot => open,
-    	M00_AXI_awready => '0',
-    	M00_AXI_awvalid => open,
-    	M00_AXI_bready => open,
-    	M00_AXI_bresp => "00",
-    	M00_AXI_bvalid => '0',
-    	M00_AXI_rdata => (31 downto 0 => '0'),
-    	M00_AXI_rready => open,
-    	M00_AXI_rresp => "00",
-    	M00_AXI_rvalid => '0',
-    	M00_AXI_wdata => open,
-   		M00_AXI_wready => '0',
-    	M00_AXI_wstrb => open,
-    	M00_AXI_wvalid => open 
+    	M00_AXI_araddr => araddr_s,
+    	M00_AXI_arprot => M00_AXI_arprot,
+    	M00_AXI_arready => M00_AXI_arready,
+    	M00_AXI_arvalid => M00_AXI_arvalid,
+    	M00_AXI_awaddr => awaddr_s,
+    	M00_AXI_awprot => M00_AXI_awprot,
+    	M00_AXI_awready => M00_AXI_awready,
+    	M00_AXI_awvalid => M00_AXI_awvalid,
+    	M00_AXI_bready => M00_AXI_bready,
+    	M00_AXI_bresp => M00_AXI_bresp,
+    	M00_AXI_bvalid => M00_AXI_bvalid,
+    	M00_AXI_rdata => M00_AXI_rdata,
+    	M00_AXI_rready => M00_AXI_rready,
+    	M00_AXI_rresp => M00_AXI_rresp,
+    	M00_AXI_rvalid => M00_AXI_rvalid,
+    	M00_AXI_wdata => M00_AXI_wdata,
+     	M00_AXI_wready => M00_AXI_wready,
+    	M00_AXI_wstrb => M00_AXI_wstrb,
+    	M00_AXI_wvalid => M00_AXI_wvalid
   	);
 end architecture RTL;

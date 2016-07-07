@@ -15,6 +15,31 @@
         <port name="clk_o" type="CLK" size="1" dir="out"/>
       </ports>
     </interface>
+    <interface name="axim" class="master" bus="axi4lite" data_size="32" addr_size="32">
+		<ports>
+			<port name="M00_AXI_clk_o" type="CLK" size="1" dir="out"/>
+			<port name="M00_AXI_rst_o" type="RST" size="1" dir="out"/>
+			<port name="M00_AXI_araddr" type="ARADR" size="32" dir="out" />
+			<port name="M00_AXI_arprot" type="ARPROT" size="3" dir="out" />
+			<port name="M00_AXI_arready" type="ARREADY" size="1" dir="in" />
+			<port name="M00_AXI_arvalid" type="ARVALID" size="1" dir="out" />
+			<port name="M00_AXI_awaddr" type="AWADR" size="32" dir="out" />
+			<port name="M00_AXI_awprot" type="AWPROT" size="3" dir="out" />
+			<port name="M00_AXI_awready" type="AWREADY" size="1" dir="in" />
+			<port name="M00_AXI_awvalid" type="AWVALID" size="1" dir="out" />
+			<port name="M00_AXI_bready" type="BREADY" size="1" dir="out" />
+			<port name="M00_AXI_bresp" type="BRESP" size="2" dir="in" />
+			<port name="M00_AXI_bvalid" type="BVALID" size="1" dir="in" />
+			<port name="M00_AXI_rdata" type="RDATA" size="32" dir="in" />
+			<port name="M00_AXI_rready" type="RREADY" size="1" dir="out" />
+			<port name="M00_AXI_rresp" type="RRESP" size="2" dir="in" />
+			<port name="M00_AXI_rvalid" type="RVALID" size="1" dir="in" />
+			<port name="M00_AXI_wdata" type="WDATA" size="32" dir="out" />
+			<port name="M00_AXI_wready" type="WREADY" size="1" dir="in" />
+			<port name="M00_AXI_wstrb" type="WSTRB" size="4" dir="out" />
+			<port name="M00_AXI_wvalid" type="WVALID" size="1" dir="out" />
+		</ports>
+	</interface>
 	<interface name="ram" class="gls">
 		<ports>
 			<port name="DDR_addr" type="EXPORT" size="15" dir="inout">
