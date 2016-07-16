@@ -15,6 +15,11 @@
         <port name="clk_o" type="CLK" size="1" dir="out"/>
       </ports>
     </interface>
+    <interface name="FCLK_CLK1" class="gls" >
+      <ports>
+        <port name="FCLK_CLK1" type="CLK" size="1" dir="out"/>
+	  </ports>
+	</interface>
     <interface name="axim" class="master" bus="axi4lite" data_size="32" addr_size="32">
 		<ports>
 			<port name="M00_AXI_clk_o" type="CLK" size="1" dir="out"/>
