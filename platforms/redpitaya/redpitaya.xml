@@ -13,6 +13,7 @@
     <interfaces>
         <interface name="fpga">
             <ports>
+					<!-- LEDS -->
 					<port size="1" name="LED0" position="F16" dir="inout" standard="LVCMOS33" />
 					<port size="1" name="LED1" position="F17" dir="inout" standard="LVCMOS33" />
 					<port size="1" name="LED2" position="G15" dir="inout" standard="LVCMOS33" />
@@ -22,6 +23,65 @@
 					<port size="1" name="LED6" position="J15" dir="inout" standard="LVCMOS33" />
 					<port size="1" name="LED7" position="J14" dir="inout" standard="LVCMOS33" />
 
+					<!-- ADC_DAC -->
+					<port size="1" name="adc_clk_p_i" position="U18" dir="in" standard="LVCMOS18" />
+					<port size="1" name="adc_clk_n_i" position="U19" dir="in" standard="LVCMOS18" />
+
+					<!-- ADC -->
+					<port size="1" position="V18" name="adc_cdcs" dir="out" standard="LVCMOS18" />
+					<port size="1" position="Y17" name="adc_data_a_i0" dir="in" standard="LVCMOS18" />
+					<port size="1" position="W16" name="adc_data_a_i1" dir="in" standard="LVCMOS18" />
+					<port size="1" position="Y16" name="adc_data_a_i2" dir="in" standard="LVCMOS18" />
+					<port size="1" position="W15" name="adc_data_a_i3" dir="in" standard="LVCMOS18" />
+					<port size="1" position="W14" name="adc_data_a_i4" dir="in" standard="LVCMOS18" />
+					<port size="1" position="Y14" name="adc_data_a_i5" dir="in" standard="LVCMOS18" />
+					<port size="1" position="W13" name="adc_data_a_i6" dir="in" standard="LVCMOS18" />
+					<port size="1" position="V12" name="adc_data_a_i7" dir="in" standard="LVCMOS18" />
+					<port size="1" position="V13" name="adc_data_a_i8" dir="in" standard="LVCMOS18" />
+					<port size="1" position="T14" name="adc_data_a_i9" dir="in" standard="LVCMOS18" />
+					<port size="1" position="T15" name="adc_data_a_i10" dir="in" standard="LVCMOS18" />
+					<port size="1" position="V15" name="adc_data_a_i11" dir="in" standard="LVCMOS18" />
+					<port size="1" position="T16" name="adc_data_a_i12" dir="in" standard="LVCMOS18" />
+					<port size="1" position="V16" name="adc_data_a_i13" dir="in" standard="LVCMOS18" />
+
+					<port size="1" position="R18" name="adc_data_b_i0" dir="in" standard="LVCMOS18" />
+					<port size="1" position="P16" name="adc_data_b_i1" dir="in" standard="LVCMOS18" />
+					<port size="1" position="P18" name="adc_data_b_i2" dir="in" standard="LVCMOS18" />
+					<port size="1" position="N17" name="adc_data_b_i3" dir="in" standard="LVCMOS18" />
+					<port size="1" position="R19" name="adc_data_b_i4" dir="in" standard="LVCMOS18" />
+					<port size="1" position="T20" name="adc_data_b_i5" dir="in" standard="LVCMOS18" />
+					<port size="1" position="T19" name="adc_data_b_i6" dir="in" standard="LVCMOS18" />
+					<port size="1" position="U20" name="adc_data_b_i7" dir="in" standard="LVCMOS18" />
+					<port size="1" position="V20" name="adc_data_b_i8" dir="in" standard="LVCMOS18" />
+					<port size="1" position="W20" name="adc_data_b_i9" dir="in" standard="LVCMOS18" />
+					<port size="1" position="W19" name="adc_data_b_i10" dir="in" standard="LVCMOS18" />
+					<port size="1" position="Y19" name="adc_data_b_i11" dir="in" standard="LVCMOS18" />
+					<port size="1" position="W18" name="adc_data_b_i12" dir="in" standard="LVCMOS18" />
+					<port size="1" position="Y18" name="adc_data_b_i13" dir="in" standard="LVCMOS18" />
+
+					<!-- DAC -->
+					<port size="1" position="M17" name="phys_dac_wrt_o" dir="out" standard="LVCMOS33" />
+					<port size="1" position="N16" name="phys_dac_sel_o" dir="out" standard="LVCMOS33" />
+					<port size="1" position="M18" name="phys_dac_clk_o" dir="out" standard="LVCMOS33" />
+					<port size="1" position="N15" name="phys_dac_rst_o" dir="out" standard="LVCMOS33" />
+
+					<port size="1" position="M19" name="phys_dac_data_o0" dir="out" standard="LVCMOS33" />
+					<port size="1" position="M20" name="phys_dac_data_o1" dir="out" standard="LVCMOS33" />
+					<port size="1" position="L19" name="phys_dac_data_o2" dir="out" standard="LVCMOS33" />
+					<port size="1" position="L20" name="phys_dac_data_o3" dir="out" standard="LVCMOS33" />
+					<port size="1" position="K19" name="phys_dac_data_o4" dir="out" standard="LVCMOS33" />
+					<port size="1" position="J19" name="phys_dac_data_o5" dir="out" standard="LVCMOS33" />
+					<port size="1" position="J20" name="phys_dac_data_o6" dir="out" standard="LVCMOS33" />
+					<port size="1" position="H20" name="phys_dac_data_o7" dir="out" standard="LVCMOS33" />
+					<port size="1" position="G19" name="phys_dac_data_o8" dir="out" standard="LVCMOS33" />
+					<port size="1" position="G20" name="phys_dac_data_o9" dir="out" standard="LVCMOS33" />
+					<port size="1" position="F19" name="phys_dac_data_o10" dir="out" standard="LVCMOS33" />
+					<port size="1" position="F20" name="phys_dac_data_o11" dir="out" standard="LVCMOS33" />
+					<port size="1" position="D20" name="phys_dac_data_o12" dir="out" standard="LVCMOS33" />
+					<port size="1" position="D19" name="phys_dac_data_o13" dir="out" standard="LVCMOS33" />
+
+
+					<!-- misc needed by processing system -->
             		<port name="FIXED_IO_ddr_vrn" constr_hidden="1" dir="inout" size="1" />
             		<port name="FIXED_IO_ddr_vrp" constr_hidden="1" dir="inout" size="1" />
             		<port name="FIXED_IO_mmio0" constr_hidden="1" dir="inout" size="1" />
