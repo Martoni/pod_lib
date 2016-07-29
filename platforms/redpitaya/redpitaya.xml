@@ -23,6 +23,24 @@
 					<port size="1" name="LED6" position="J15" dir="inout" standard="LVCMOS33" />
 					<port size="1" name="LED7" position="J14" dir="inout" standard="LVCMOS33" />
 
+					<!-- EXT connector E1 -->
+					<port size="1" name="E1_3" position="G17" dir="inout" standard="LVCMOS33" />
+					<port size="1" name="E1_4" position="G18" dir="inout" standard="LVCMOS33" />
+					<port size="1" name="E1_5" position="H16" dir="inout" standard="LVCMOS33" />
+					<port size="1" name="E1_6" position="H17" dir="inout" standard="LVCMOS33" />
+					<port size="1" name="E1_7" position="J18" dir="inout" standard="LVCMOS33" />
+					<port size="1" name="E1_8" position="H18" dir="inout" standard="LVCMOS33" />
+					<port size="1" name="E1_9" position="K17" dir="inout" standard="LVCMOS33" />
+					<port size="1" name="E1_10" position="K18" dir="inout" standard="LVCMOS33" />
+					<port size="1" name="E1_11" position="L14" dir="inout" standard="LVCMOS33" />
+					<port size="1" name="E1_12" position="L15" dir="inout" standard="LVCMOS33" />
+					<port size="1" name="E1_13" position="L16" dir="inout" standard="LVCMOS33" />
+					<port size="1" name="E1_14" position="L17" dir="inout" standard="LVCMOS33" />
+					<port size="1" name="E1_15" position="K16" dir="inout" standard="LVCMOS33" />
+					<port size="1" name="E1_16" position="J16" dir="inout" standard="LVCMOS33" />
+					<port size="1" name="E1_17" position="M14" dir="inout" standard="LVCMOS33" />
+					<port size="1" name="E1_18" position="M15" dir="inout" standard="LVCMOS33" />
+
 					<!-- ADC_DAC -->
 					<port size="1" name="adc_clk_p_i" position="U18" dir="in" standard="LVCMOS18" />
 					<port size="1" name="adc_clk_n_i" position="U19" dir="in" standard="LVCMOS18" />
