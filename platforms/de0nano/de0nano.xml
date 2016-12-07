@@ -10,10 +10,14 @@
 		<component name="syscons/rstgen_syscon"/>
 	</components>
 
+    <clocks>
+        <clock name="CLK_50" frequency="50" />
+    </clocks>
+
     <interfaces>
         <interface name="fpga">
             <ports>
-                    <port size="1" name="CLK_50" position="PIN_R8" dir="inout" freq="50"/>
+                    <port size="1" name="CLK_50" position="PIN_R8" dir="inout" standard="3.3-V LVTTL" freq="50"/>
 					<port size="1" name="LED0" position="PIN_A15" dir="inout" standard="3.3-V LVTTL" />
 					<port size="1" name="LED1" position="PIN_A13" dir="inout" standard="3.3-V LVTTL" />
 					<port size="1" name="LED2" position="PIN_B13" dir="inout" standard="3.3-V LVTTL" />
@@ -72,7 +76,7 @@
 					<port size="1" name="GPIO_027" position="PIN_E10" dir="inout" standard="3.3-V LVTTL" />
 					<port size="1" name="GPIO_028" position="PIN_C11" dir="inout" standard="3.3-V LVTTL" />
 					<port size="1" name="GPIO_029" position="PIN_B11" dir="inout" standard="3.3-V LVTTL" />
-					<port size="1" name="GPIO_030" position="PIN_A11" dir="inout" standard="3.3-V LVTTL" />
+					<port size="1" name="GPIO_030" position="PIN_A12" dir="inout" standard="3.3-V LVTTL" />
 					<port size="1" name="GPIO_031" position="PIN_D11" dir="inout" standard="3.3-V LVTTL" />
 					<port size="1" name="GPIO_032" position="PIN_D12" dir="inout" standard="3.3-V LVTTL" />
 					<port size="1" name="GPIO_033" position="PIN_B12" dir="inout" standard="3.3-V LVTTL" />
