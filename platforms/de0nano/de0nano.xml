@@ -10,6 +10,10 @@
 		<component name="syscons/rstgen_syscon"/>
 	</components>
 
+    <clocks>
+        <clock name="CLK_50" frequency="50" />
+    </clocks>
+
     <interfaces>
         <interface name="fpga">
             <ports>
