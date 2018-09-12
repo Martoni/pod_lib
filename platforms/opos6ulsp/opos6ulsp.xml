@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<platform name="opos6ulsp" version="0.1" >
+    <description>
+        Armadeus opos6ulsp card
+    </description>
+
+    <fpga family="spartan6" device="XC6SLX9" speed="-2" package="CSG225" main_clock="99000"/>
+
+    <simulation>
+         <simlib filename="opos6ulsp_test_pkg.vhd">
+             <description>
+                 Defines communication functions between imx6ul and spartan6:
+             </description>
+         </simlib>
+    </simulation>
+
+    <components>
+        <component name="wrappers/imx6ul_wb16_wrapper"/>
+        <component name="syscons/rstgen_syscon"/>
+        <component name="components/irq_mngr"/>
+    </components>
+
+    <interfaces>
+        <interface name="fpga">
+            <ports>
+                                 
+                <port size="1" standard="LVCMOS33" dir="inout" position="B14" name="IO_L1P_A25_1"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="B15" name="IO_L1N_A24_VREF_1"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="G11" name="IO_L30P_A21_M1RESET_1_NOTLX4"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="G12" name="IO_L30N_A20_M1A11_1_NOTLX4"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="F11" name="IO_L31P_A19_M1CKE_1_NOTLX4"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="F12" name="IO_L31N_A18_M1A12_1_NOTLX4"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="H10" name="IO_L32P_A17_M1A8_1_NOTLX4"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="H11" name="IO_L32N_A16_M1A9_1_NOTLX4"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="C14" name="IO_L33P_A15_M1A10_1"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="C15" name="IO_L33N_A14_M1A4_1"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="H12" name="IO_L34P_A13_M1WE_1_NOTLX4"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="G13" name="IO_L34N_A12_M1BA2_1_NOTLX4"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="D13" name="IO_L35P_A11_M1A7_1"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="D15" name="IO_L35N_A10_M1A2_1"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="J11" name="IO_L36P_A9_M1BA0_1"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="J13" name="IO_L36N_A8_M1BA1_1"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="E14" name="IO_L37P_A7_M1A0_1"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="E15" name="IO_L37N_A6_M1A1_1"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="K10" name="IO_L38P_A5_M1CLK_1"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="K11" name="IO_L38N_A4_M1CLKN_1"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="F13" name="IO_L39P_M1A3_1"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="F15" name="IO_L39N_M1ODT_1"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="K12" name="IO_L40P_GCLK11_M1A5_1"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="L12" name="IO_L40N_GCLK10_M1A6_1"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="G14" name="IO_L41P_GCLK9_IRDY1_M1RASN_1"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="G15" name="IO_L41N_GCLK8_M1CASN_1"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="H13" name="IO_L42P_GCLK7_M1UDM_1"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="H15" name="IO_L42N_GCLK6_TRDY1_M1LDM_1"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="J14" name="IO_L43P_GCLK5_M1DQ4_1"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="J15" name="IO_L43N_GCLK4_M1DQ5_1"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="K13" name="IO_L44P_A3_M1DQ6_1"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="K15" name="IO_L44N_A2_M1DQ7_1"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="L14" name="IO_L45P_A1_M1LDQS_1"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="L15" name="IO_L45N_A0_M1LDQSN_1"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="M13" name="IO_L46P_FCS_B_M1DQ2_1"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="M15" name="IO_L46N_FOE_B_M1DQ3_1"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="N14" name="IO_L47P_FWE_B_M1DQ0_1"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="N15" name="IO_L47N_LDC_M1DQ1_1"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="P14" name="IO_L74P_AWAKE_1"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="P15" name="IO_L74N_DOUT_BUSY_1"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="N2 " name="IO_L37P_M3DQ0_3"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="N1 " name="IO_L37N_M3DQ1_3"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="M3 " name="IO_L38P_M3DQ2_3"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="M1 " name="IO_L38N_M3DQ3_3"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="L2 " name="IO_L39P_M3LDQS_3"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="L1 " name="IO_L39N_M3LDQSN_3"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="K3 " name="IO_L40P_M3DQ6_3"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="K1 " name="IO_L40N_M3DQ7_3"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="J2 " name="IO_L41P_GCLK27_M3DQ4_3"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="J1 " name="IO_L41N_GCLK26_M3DQ5_3"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="H3 " name="IO_L42P_GCLK25_TRDY2_M3UDM_3"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="H1 " name="IO_L42N_GCLK24_M3LDM_3"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="K4 " name="IO_L43P_GCLK23_M3RASN_3"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="J3 " name="IO_L43N_GCLK22_IRDY2_M3CASN_3"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="G2 " name="IO_L44P_GCLK21_M3A5_3"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="G1 " name="IO_L44N_GCLK20_M3A6_3"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="K5 " name="IO_L45P_M3A3_3"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="J4 " name="IO_L45N_M3ODT_3"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="F3 " name="IO_L46P_M3CLK_3"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="F1 " name="IO_L46N_M3CLKN_3"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="J5 " name="IO_L47P_M3A0_3_NOTLX4"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="H4 " name="IO_L47N_M3A1_3_NOTLX4"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="G5 " name="IO_L48P_M3BA0_3_NOTLX4"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="G3 " name="IO_L48N_M3BA1_3_NOTLX4"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="H6 " name="IO_L49P_M3A7_3_NOTLX4"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="H5 " name="IO_L49N_M3A2_3_NOTLX4"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="F5 " name="IO_L50P_M3WE_3_NOTLX4"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="F4 " name="IO_L50N_M3BA2_3_NOTLX4"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="E5 " name="IO_L51P_M3A10_3_NOTLX4"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="E4 " name="IO_L51N_M3A4_3_NOTLX4"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="E2 " name="IO_L52P_M3A8_3"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="E1 " name="IO_L52N_M3A9_3"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="D4 " name="IO_L53P_M3CKE_3"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="E3 " name="IO_L53N_M3A12_3"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="D3 " name="IO_L54P_M3RESET_3"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="D1 " name="IO_L54N_M3A11_3"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="C2 " name="IO_L83P_3"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="C1 " name="IO_L83N_VREF_3"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="B3 " name="IO_L2P_0"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="A3 " name="IO_L2N_0"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="D5 " name="IO_L3P_0"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="C5 " name="IO_L3N_0"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="C4 " name="IO_L4P_0"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="A4 " name="IO_L4N_0"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="E6 " name="IO_L5P_0_NOTLX4"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="D6 " name="IO_L5N_0_NOTLX4"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="B5 " name="IO_L6P_0"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="A5 " name="IO_L6N_0"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="D7 " name="IO_L7P_0_NOTLX4"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="C7 " name="IO_L7N_0_NOTLX4"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="C6 " name="IO_L33P_0"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="A6 " name="IO_L33N_0"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="E7 " name="IO_L34P_GCLK19_0"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="D8 " name="IO_L34N_GCLK18_0"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="B7 " name="IO_L35P_GCLK17_0"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="A7 " name="IO_L35N_GCLK16_0"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="C8 " name="IO_L36P_GCLK15_0"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="A8 " name="IO_L36N_GCLK14_0"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="B9 " name="IO_L37P_GCLK13_0"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="A9 " name="IO_L37N_GCLK12_0"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="F8 " name="IO_L38P_0_NOTLX4"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="E8 " name="IO_L38N_VREF_0_NOTLX4"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="D10" name="IO_L39P_0"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="C9 " name="IO_L39N_0"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="F10" name="IO_L40P_0"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="E9 " name="IO_L40N_0"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="C10" name="IO_L62P_0"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="A10" name="IO_L62N_VREF_0"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="B11" name="IO_L63P_SCP7_0"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="A11" name="IO_L63N_SCP6_0"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="D11" name="IO_L64P_SCP5_0"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="C11" name="IO_L64N_SCP4_0"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="B13" name="IO_L65P_SCP3_0"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="A13" name="IO_L65N_SCP2_0"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="C12" name="IO_L66P_SCP1_0"/>
+                <port size="1" standard="LVCMOS33" dir="inout" position="A12" name="IO_L66N_SCP0_0"/>
+
+                <port size="1" standard="LVCMOS33" position="N12"  name="EIM_BCLK" dir="inout" freq="99"/>
+
+                <port size="1" standard="LVCMOS33" position="P13"  name="EIM_EB0" dir="inout"/>
+                <port size="1" standard="LVCMOS33" position="R13"  name="EIM_EB1" dir="inout"/>
+
+                <port size="1" standard="LVCMOS33" position="P11" name="EIM_DA0" dir="inout"/>
+                <port size="1" standard="LVCMOS33" position="R11" name="EIM_CS0" dir="inout"/>
+                <port size="1" standard="LVCMOS33" position="M11" name="EIM_DA1" dir="inout"/>
+                <port size="1" standard="LVCMOS33" position="N11" name="EIM_DA2" dir="inout"/>
+                <port size="1" standard="LVCMOS33" position="R10" name="EIM_DA10" dir="inout"/>
+                <port size="1" standard="LVCMOS33" position="L9"  name="EIM_DA11" dir="inout"/>
+                <port size="1" standard="LVCMOS33" position="M10" name="EIM_DA12" dir="inout"/>
+                <port size="1" standard="LVCMOS33" position="R9"  name="EIM_OE" dir="inout"/>
+                <port size="1" standard="LVCMOS33" position="M8"  name="EIM_DA13" dir="inout"/>
+                <port size="1" standard="LVCMOS33" position="N7"  name="CLK0" dir="inout"/>
+                <port size="1" standard="LVCMOS33" position="K8"  name="EIM_DA14" dir="inout"/>
+                <port size="1" standard="LVCMOS33" position="L8"  name="EIM_DA15" dir="inout"/>
+
+                <port size="1" standard="LVCMOS33" position="R7"  name="EIM_LBA" dir="inout"/>
+                <port size="1" standard="LVCMOS33" position="N6"  name="EIM_DA7" dir="inout"/>
+                <port size="1" standard="LVCMOS33" position="R6"  name="EIM_RW" dir="inout"/>
+                <port size="1" standard="LVCMOS33" position="P5"  name="EIM_DA3" dir="inout"/>
+                <port size="1" standard="LVCMOS33" position="R5"  name="EIM_DA4" dir="inout"/>
+                <port size="1" standard="LVCMOS33" position="L6"  name="EIM_DA5" dir="inout"/>
+                <port size="1" standard="LVCMOS33" position="L5"  name="EIM_DA6" dir="inout"/>
+                <port size="1" standard="LVCMOS33" position="M5"  name="EIM_DA8" dir="inout"/>
+                <port size="1" standard="LVCMOS33" position="N5"  name="EIM_DA9" dir="inout"/>
+                <port size="1" standard="LVCMOS33" position="P3"  name="FPGA_INITB" dir="inout"/>
+                <port size="1" standard="LVCMOS33" position="R2"  name="FPGA_PROGRAM" dir="inout"/>
+
+            </ports>
+        </interface>
+    </interfaces>
+
+</platform>
