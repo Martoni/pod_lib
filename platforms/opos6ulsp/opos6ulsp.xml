@@ -141,7 +141,7 @@
                 <port size="1" standard="LVCMOS33" dir="inout" position="C12" name="IO_L66P_SCP1_0"/>
                 <port size="1" standard="LVCMOS33" dir="inout" position="A12" name="IO_L66N_SCP0_0"/>
 
-                <port size="1" standard="LVCMOS33" position="N12"  name="EIM_BCLK" dir="inout" freq="99"/>
+                <port size="1" standard="LVCMOS33" position="N8"  name="EIM_BCLK" dir="inout" freq="99"/>
 
                 <port size="1" standard="LVCMOS33" position="P13"  name="EIM_EB0" dir="inout"/>
                 <port size="1" standard="LVCMOS33" position="R13"  name="EIM_EB1" dir="inout"/>
