@@ -143,31 +143,31 @@
 
                 <port size="1" standard="LVCMOS33" position="N8"  name="EIM_BCLK" dir="inout" freq="99"/>
 
-                <port size="1" standard="LVCMOS33" position="P13"  name="EIM_EB0" dir="inout"/>
-                <port size="1" standard="LVCMOS33" position="R13"  name="EIM_EB1" dir="inout"/>
+                <port size="1" standard="LVCMOS33" position="P7"  name="EIM_EB0" dir="inout"/>
+                <port size="1" standard="LVCMOS33" position="P13"  name="EIM_EB1" dir="inout"/>
 
-                <port size="1" standard="LVCMOS33" position="P11" name="EIM_DA0" dir="inout"/>
-                <port size="1" standard="LVCMOS33" position="R11" name="EIM_CS0" dir="inout"/>
-                <port size="1" standard="LVCMOS33" position="M11" name="EIM_DA1" dir="inout"/>
-                <port size="1" standard="LVCMOS33" position="N11" name="EIM_DA2" dir="inout"/>
-                <port size="1" standard="LVCMOS33" position="R10" name="EIM_DA10" dir="inout"/>
-                <port size="1" standard="LVCMOS33" position="L9"  name="EIM_DA11" dir="inout"/>
-                <port size="1" standard="LVCMOS33" position="M10" name="EIM_DA12" dir="inout"/>
-                <port size="1" standard="LVCMOS33" position="R9"  name="EIM_OE" dir="inout"/>
-                <port size="1" standard="LVCMOS33" position="M8"  name="EIM_DA13" dir="inout"/>
-                <port size="1" standard="LVCMOS33" position="N7"  name="CLK0" dir="inout"/>
-                <port size="1" standard="LVCMOS33" position="K8"  name="EIM_DA14" dir="inout"/>
-                <port size="1" standard="LVCMOS33" position="L8"  name="EIM_DA15" dir="inout"/>
+                <port size="1" standard="LVCMOS33" position="N6"  name="EIM_DA0"  dir="inout"/>
+                <port size="1" standard="LVCMOS33" position="R11" name="EIM_CS0"  dir="inout"/>
+                <port size="1" standard="LVCMOS33" position="L5"  name="EIM_DA1"  dir="inout"/>
+                <port size="1" standard="LVCMOS33" position="L6"  name="EIM_DA2"  dir="inout"/>
+                <port size="1" standard="LVCMOS33" position="M8"  name="EIM_DA10" dir="inout"/>
+                <port size="1" standard="LVCMOS33" position="M10" name="EIM_DA11" dir="inout"/>
+                <port size="1" standard="LVCMOS33" position="L9"  name="EIM_DA12" dir="inout"/>
+                <port size="1" standard="LVCMOS33" position="R7"  name="EIM_OE"   dir="inout"/>
+                <port size="1" standard="LVCMOS33" position="R10" name="EIM_DA13" dir="inout"/>
+                <port size="1" standard="LVCMOS33" position="N7"  name="CLK0"     dir="inout"/>
+                <port size="1" standard="LVCMOS33" position="N5"  name="EIM_DA14" dir="inout"/>
+                <port size="1" standard="LVCMOS33" position="M5"  name="EIM_DA15" dir="inout"/>
 
-                <port size="1" standard="LVCMOS33" position="R7"  name="EIM_LBA" dir="inout"/>
-                <port size="1" standard="LVCMOS33" position="N6"  name="EIM_DA7" dir="inout"/>
-                <port size="1" standard="LVCMOS33" position="R6"  name="EIM_RW" dir="inout"/>
-                <port size="1" standard="LVCMOS33" position="P5"  name="EIM_DA3" dir="inout"/>
-                <port size="1" standard="LVCMOS33" position="R5"  name="EIM_DA4" dir="inout"/>
-                <port size="1" standard="LVCMOS33" position="L6"  name="EIM_DA5" dir="inout"/>
-                <port size="1" standard="LVCMOS33" position="L5"  name="EIM_DA6" dir="inout"/>
-                <port size="1" standard="LVCMOS33" position="M5"  name="EIM_DA8" dir="inout"/>
-                <port size="1" standard="LVCMOS33" position="N5"  name="EIM_DA9" dir="inout"/>
+                <port size="1" standard="LVCMOS33" position="R9"  name="EIM_LBA" dir="inout"/>
+                <port size="1" standard="LVCMOS33" position="P11" name="EIM_DA7" dir="inout"/>
+                <port size="1" standard="LVCMOS33" position="R6"  name="EIM_RW"  dir="inout"/>
+                <port size="1" standard="LVCMOS33" position="R5"  name="EIM_DA3" dir="inout"/>
+                <port size="1" standard="LVCMOS33" position="P5"  name="EIM_DA4" dir="inout"/>
+                <port size="1" standard="LVCMOS33" position="N11" name="EIM_DA5" dir="inout"/>
+                <port size="1" standard="LVCMOS33" position="M11" name="EIM_DA6" dir="inout"/>
+                <port size="1" standard="LVCMOS33" position="L8"  name="EIM_DA8" dir="inout"/>
+                <port size="1" standard="LVCMOS33" position="K8"  name="EIM_DA9" dir="inout"/>
                 <port size="1" standard="LVCMOS33" position="P3"  name="FPGA_INITB" dir="inout"/>
                 <port size="1" standard="LVCMOS33" position="R2"  name="FPGA_PROGRAM" dir="inout"/>
 
