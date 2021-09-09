@@ -50,6 +50,7 @@ Architecture RTL of imx51_wb16_wrapper is
     signal strobe     : std_logic;
     signal writedata  : std_logic_vector(15 downto 0);
     signal address    : std_logic_vector(15 downto 0);
+    signal adv_old : std_logic;
 begin
 
     wbm_clk <= gls_clk;
@@ -61,24 +62,32 @@ begin
       if(gls_reset='1') then
         writedata <= (others => '0');
         address   <= (others => '0');
+        adv_old <= '1';
+        strobe <= '0';
+        write  <= '0';
+        read   <= '0';
       elsif(rising_edge(gls_clk)) then
-        if (imx_adv = '0') then
+        if (adv_old = '1' and imx_adv = '0') then
             address <= imx_da;
         else
             writedata <= imx_da;
         end if;
+        adv_old <= imx_adv;
+        strobe  <= not (imx_cs_n);
+        write   <= (not (imx_cs_n)) and (not(imx_rw));
+        read    <= (not (imx_cs_n)) and imx_rw;
+        if ((read = '1') and (strobe = '1')) then
+            imx_da <= wbm_readdata;
+        else
+            imx_da <= (others => 'Z');
+        end if;
       end if;
     end process;
-
-    strobe  <= not (imx_cs_n);
-    write   <= (not (imx_cs_n)) and (not(imx_rw));
-    read    <= (not (imx_cs_n)) and imx_rw;
 
     wbm_address    <= address;
     wbm_writedata  <= writedata when (write = '1') else (others => '0');
     wbm_strobe     <= strobe;
     wbm_write      <= write;
     wbm_cycle      <= strobe;
-    imx_da <= wbm_readdata when ((read = '1') and (strobe = '1')) else (others => 'Z');
 
 end architecture RTL;
